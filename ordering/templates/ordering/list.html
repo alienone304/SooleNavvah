@@ -1,0 +1,114 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div style="padding: 5%;">
+  {% for order in orders %}
+    <div style="max-width:1800px; margin:auto;" class="border-radius-2 shadow-3 uk-card gray-gradiant fYekan">
+        <div class="uk-card-header gray-text-darken-4 font-4">
+          <p>
+            <span class="fYekan-bold">{{order.phone_number}}</span>
+
+سفارش ساخت
+{% if order.is_salon %}
+<span class="fYekan-bold">سوله</span>
+
+{% else %}
+<span class="fYekan-bold">سازه ی فلزی</span>
+
+{% endif %}
+ به ابعاد
+ <span class="fYekan-bold">{{order.width}}</span>
+در
+ <span class="fYekan-bold">{{order.length}}</span>
+
+واقع در
+<span class="fYekan-bold">{{order.address}}</span>
+
+داده است.
+</p>
+        </div>
+        <div style="border-top:1px gray solid;" class="uk-card-body">
+          <div class="uk-grid-match uk-grid-medium uk-text-center" uk-grid>
+
+      {% if order.name %}
+      <div class="uk-width-1-3@s">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نام سفارش دهنده</label>
+        {{order.name}}
+      </div>
+      {% endif %}
+
+      {% if order.height %}
+      <div class="uk-width-1-3@s">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >ارتفاع</label>
+        {{order.height}}
+      </div>
+      {% endif %}
+
+      {% if order.is_double_side_inclined or order.is_curved or order.is_single_side_inclined %}
+      <div class="uk-width-1-3@s">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نوع سقف</label>
+      {% if order.is_double_side_inclined %}
+شیب دار
+      {% endif %}
+      {% if order.is_single_side_inclined %}
+شیب دار تک طرفه
+      {% endif %}
+      {% if order.is_curved %}
+قوسی
+      {% endif %}
+      </div>
+      {% endif %}
+
+      {% if order.type_of_use %}
+      <div class="uk-width-1-3@s">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نوع کاربری سازه</label>
+        {{order.type_of_use}}
+      </div>
+      {% endif %}
+
+      {% if order.has_crane %}
+      <div class="uk-width-1-3@s">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >وزن جرثقیل</label>
+        {{order.crane_weight}}
+      </div>
+      {% endif %}
+
+      {% if order.number_of_floor %}
+      <div class="uk-width-1-3@s">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >تعداد طبقات</label>
+        {{order.number_of_floor}}
+      </div>
+      {% endif %}
+
+      {% if order.has_child_salon %}
+      <div class="uk-width-1-3@s">
+دارای بچه سوله
+      </div>
+      {% endif %}
+
+      {% if order.has_half_floor %}
+      <div class="uk-width-1-3@s">
+دارای نیم طبقه
+      </div>
+      {% endif %}
+      <div class="uk-width-1-1">
+        <a href="{% url 'ordering:orderdelete' order.pk %}" style="max-width:150px;" class="border-radius-2 uk-button red gray-text-lighten-4 uk-align-center uk-text-center">حذف</a>
+
+      </div>
+
+    </div>
+      </div>
+      </div>
+      <br>
+      {% endfor %}
+</div>
+{% endblock %}

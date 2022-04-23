@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jpage@0.14.0/lib/index.min.css"/>
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="jpage">
+      <div class="section section1" style="background-color: #ffc107;">
+        <h1>JPage JavaScript Library Example</h1>
+        <div style="margin:2rem auto"><div id="carbon-block"></div>
+        </div>
+        <p>A fullscreen page slider JavaScript library that converts page sections into a combination of touch-enabled sliders and scrollers.</p>
+      </div>
+      <div class="section">
+        <div class="slider"><span id="ezoic-pub-ad-placeholder-141" class="ezoic-adpicker-ad"></span>
+          <div class="slide section1" style="background-color: brown;"> <h1>CSSScript</h1></div>
+          <div class="slide" style="background-color: dimgray;">
+            <!-- Your content -->
+          </div>
+        </div>
+      </div>
+      <div class="after-sections">
+        <div class="p">
+          <h1>This is the After Sections component</h1>
+          <h1>This component allows scrolling</h1>
+        </div>
+        <div style="margin:2000px;">
+
+        </div>
+        <div>
+          <h1>This is the After Sections component</h1>
+          <h1>This component allows scrolling</h1>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <script
+    src="https://cdn.jsdelivr.net/npm/jpage@0.14.0/lib/index.min.js"
+    type="module"
+  ></script>
+
+    <script>
+    const sections = document.querySelectorAll(".jpage .section")
+    const jpageConfig = {
+scroller: {
+  showControls: true,
+  waitingTime: 500,
+  afterSections: {
+    // shows menu after page sections
+    menuVisible: false,
+  }
+},
+slider: {
+  showControls: true,
+},
+menu: {
+  buttonIconToClose: "x",
+  buttonIconToOpen: "o",
+},
+}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" style="overflow-x: hidden;background: rgb(203,19,6);background: linear-gradient(144deg, rgba(203,19,6,1) 24%, rgba(66,0,0,1) 83%);background-attachment: fixed;">
+<head>
+  {% block head_block %}
+{% endblock %}
+      <meta charset="utf-8">
+      <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;700&family=Noto+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/uikit-rtl.css' %}" media="screen,projection"/>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jpage@0.14.0/lib/index.min.css"/>
+  <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+  <script src="{% static 'js/uikit.min.js' %}" ></script>
+  <script src="{% static 'js/uikit-icons.min.js' %}" ></script>
+</head>
+      <body>
+
+        <header >
+            <!-- Main Navbar -->
+
+            <nav class="uk-navbar-container uk-margin" style=" background: rgb(249,249,249);background: linear-gradient(144deg, rgba(249,249,249,1) 5%, rgba(233,233,233,1) 100%);position: fixed;right: 0;left: 0;top: 0;z-index: 1030;box-shadow: 0 15px 17px rgba(0, 0,0, 0.18); height:100px;" uk-navbar>
+                <div style="margin-bottom: 1.5%;" class="uk-navbar-right">
+
+                    <a class="uk-navbar-item uk-logo" alt="لوگو سوله سازی نواح تبریز" href="{% url 'home' %}"> <img width="115px" src="/media/statics/Logo_small.png" alt="لوگوی سوله سازی نواح تبریز"> </a>
+
+
+                </div>
+                <div class="uk-navbar-left uk-hidden@m"><a id="humberger" href="#" class="uk-navbar-toggle red-text" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a></div>
+                <div class="uk-navbar-left uk-visible@m">
+                  <ul style="" class="uk-navbar-nav">
+                      <li>
+
+                          {% if user.is_superuser %}
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'accounts:dashboard' %}">
+                            پنل مدیریت
+                          </a>
+                          {% endif %}
+                          {% if not user.is_authenticated %}
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'accounts:login' %}">
+                            ورود
+                          </a>
+                          {% endif %}
+                      </li>
+                      <li>
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'gallery:gallery' %}">
+                            گالری
+                          </a>
+                      </li>
+                      <li>
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'projects:projectlist' %}">
+                            لیست پروژه ها
+                          </a>
+                      </li>
+                      <li>
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'ordering:order' %}">
+                          سفارش ساخت
+                          </a>
+                      </li>
+                      <li>
+                          <a style="margin-left:10px; color:#gray; font-family: 'Yekan';  font-size:18px;" class="disabled" href="#">
+                            تخمین هزینه
+                          </a>
+                      </li>
+                      <li>
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="#">
+                            گروه صنعتی نواح<span uk-icon="triangle-down"></span>
+                          </a>
+                          <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#ffffff;">
+    <ul class="uk-nav uk-navbar-dropdown-nav">
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:contactus' %}">تماس با ما</a></li>
+        <li class="red-text">__________________</li>
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:aboutus' %}">درباره ی ما</a></li>
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">سوله ی نواح</a></li>
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">سازه فلزی نواح</a></li>
+    </ul>
+</div>
+                      </li>
+                      <li>
+                          <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="#">
+
+                          </a>
+                      </li>
+                  </ul>
+
+
+
+                </div>
+            </nav>
+
+
+        </header>
+
+
+
+
+                <div style="z-index:5000" id="sidenav" uk-offcanvas="flip: true" style="background: rgb(249,249,249);background: linear-gradient(144deg, rgba(249,249,249,1) 5%, rgba(233,233,233,1) 100%); box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas">
+                    <div style="background: rgb(249,249,249);background: linear-gradient(144deg, rgba(249,249,249,1) 5%, rgba(233,233,233,1) 100%); box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas-bar">
+                        <ul class="uk-nav">
+                          <li>
+
+                              {% if user.is_superuser %}
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'accounts:dashboard' %}">
+                                پنل مدیریت
+                              </a>
+                              {% endif %}
+                              {% if not user.is_authenticated %}
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'accounts:login' %}">
+                                ورود
+                              </a>
+                              {% endif %}
+                          </li>
+                          <li>
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'gallery:gallery' %}">
+                                گالری
+                              </a>
+                          </li>
+                          <li>
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'projects:projectlist' %}">
+                                لیست پروژه ها
+                              </a>
+                          </li>
+                          <li>
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'ordering:order' %}">
+                              سفارش ساخت
+                              </a>
+                          </li>
+                          <li>
+                              <a style=" color:gray; font-family: 'Yekan';  font-size:18px;" class="disabled" href="#">
+                                تخمین هزینه
+                              </a>
+                          </li>
+                          <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:contactus' %}">تماس با ما</a></li>
+                          <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:aboutus' %}">درباره ی ما</a></li>
+                          <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">سوله ی نواح</a></li>
+                          <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">سازه فلزی نواح</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+<br><br><br><br>
+<div  class="jpage">
+      {% block body_block %}
+      {% endblock %}
+
+      <footer style="padding:30px;" class="gray-gradiant font-3">
+              <div  class="uk-grid uk-grid-small fYekan uk-margin" uk-grid>
+                <div class="uk-width-1-4@s uk-width-1-2 uk-margin-top">
+              <a href="{% url 'gallery:gallery' %}" class="red-text">گالری</a><br>
+              <a href="{% url 'company:aboutus' %}" class="red-text">درباره ما</a><br>
+              <a href="{% url 'company:contactus' %}" class="red-text">تماس با ما</a><br>
+              <a href="#" class="red-text">مقالات</a><br>
+              <a href="{% url 'company:salon' %}" class="red-text">سوله های نواح</a><br>
+              <a href="{% url 'company:steelbuilding' %}" class="red-text">سازه های فلزی نواح</a><br>
+
+
+
+                </div>
+                <div class="uk-width-1-4@s uk-width-1-2 uk-margin-top">
+                  <a href="{% url 'home' %}" class="red-text">خانه</a><br>
+                  <a href="{% url 'accounts:login' %}" class="red-text">ورود</a><br>
+                  <a href="{% url 'logout' %}" class="red-text">خروج</a><br>
+                  <a href="{% url 'ordering:order' %}" class="red-text">سفارش ساخت</a><br>
+                  <a href="{% url 'projects:projectlist' %}" class="red-text">لیست پروژه ها</a><br>
+                  <a href="#" class="gray-text">تخمین هزینه ساخت</a><br>
+
+                </div>
+                <div class="uk-width-1-2@s uk-width-1-1" uk-grid>
+<div class="uk-width-1-1 uk-text-center">
+<a class="uk-text-center"  href="{% url 'home' %}"> <img width="108px" src="/media/statics/Logo_small.png" alt="لوگوی سوله سازی نواح تبریز"> </a>
+</div>
+
+                  <div class=" uk-width-1-2 ">
+                    <div style="margin-top:6px;" class="red-text">۰۴۱۳-۴۲۴-۵۰۸۱</div>
+                    <div style="margin-top:6px;" class="red-text">۰۹۱۴-۱۱۶-۵۹۱۳</div>
+                    <div style="margin-top:6px;" class="red-text">۰۹۱۴-۳۰۹-۸۸۱۵</div>
+
+                  </div>
+                  <div class=" uk-width-1-2 uk-text-right ">
+                    <div style="direction:ltr;"> <a class="red-text" href="https://www.instagram.com/soolenavvah_steelbuilding/" class="redC-text"> @soolenavvah_steelbuilding <img width="27" style="margin-top:0;" src="/media/Logo/instagram.png" alt=""></a></div>
+                    <div style="direction:ltr;"><a class="red-text" href="https://wa.me/+989141165913" class="redC-text">  ۰۹۱۴-۱۱۶-۵۹۱۳  <img width="27" style="margin-top:0;" src="/media/Logo/watsapp.png" alt=""></a></div>
+                    <div class="red-text"><a class="red-text" href="https://goo.gl/maps/n5DW3v6ri6AVDyZH8"><span style="background: #f52d1b; padding:5px; border-radius: 50%;" class="white-text" uk-icon="icon:location;ratio:1"></span>  Google Maps</a></div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+      </footer>
+      <div class=" uk-grid-small uk-text-center red-gradiant"  uk-grid>
+            <div class="uk-width-1-1 gray-text-lighten-4 fYekan uk-text-center uk-text-center font-2" >
+              تمام حقوق مادی و معنوی این سایت تحت گروه صنعتی نواح محفوظ می باشد.
+        </div>
+
+      </div>
+      <br><br><br><br>
+</div>
+
+</div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript">
+      $('#humberger').click(function() {
+  $('#sidenav').css({
+      'z-index': '5000',
+  });
+});
+      </script>
+      <script
+src="https://cdn.jsdelivr.net/npm/jpage@0.14.0/lib/index.min.js"
+type="module"
+></script>
+
+<script>
+const sections = document.querySelectorAll(".jpage .section")
+const jpageConfig = {
+scroller: {
+showControls: true,
+waitingTime: 500,
+afterSections: {
+// shows menu after page sections
+menuVisible: false,
+}
+},
+slider: {
+showControls: true,
+},
+menu: {
+buttonIconToClose: "x",
+buttonIconToOpen: "o",
+},
+}
+</script>
+
+
+      {% block script_block %}
+      {% endblock %}
+    </body>
+  </html>

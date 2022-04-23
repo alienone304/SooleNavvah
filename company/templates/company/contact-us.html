@@ -1,0 +1,100 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+<script src="uikit/dist/js/uikit-icons.min.js"></script>
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+<div style="padding: 5%;">
+
+    <div class="fYekan gray-text-lighten-4 font-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-3@s uk-text-center" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+              <ul class="uk-list uk-text-center gray-text-lighten-4"><span style="background: #ffffff; padding:20px; border-radius: 50%;" class="animation-slow uk-margin-small-right red-text" uk-icon="icon:receiver;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span><br><br>
+                <li class="font-5 white-text fYekan-bold">شماره تماس</li>
+                <li>۰۴۱۳-۴۲۴-۵۰۸۱ </li>
+                <li >۰۹۱۴-۱۱۶-۵۹۱۳</li>
+                <li >۰۹۱۴-۳۰۹-۸۸۱۵</li>
+
+              </ul>
+            </div>
+         </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+              <a href="https://goo.gl/maps/n5DW3v6ri6AVDyZH8">
+                <ul class="uk-list  uk-text-center"><span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:location;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span><br><br>
+                  <li class="font-5 fYekan-bold white-text">آدرس</li>
+                <li class="gray-text-lighten-4">ایران - آذربایجان شرقی - ابتدای جاده ی آذرشهر تبریز - روبروی پمپ بنزین پالایشگاه - سوله و سازه های صنعتی نواح</li>
+
+                </ul></a>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+              <ul  class="uk-list  uk-text-center"><span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:users;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span><br><br>
+                <li class="font-5 fYekan-bold white-text">  شبکه های اجتماعی</li>
+                <li class="gray-text-lighten-4">ما را در شبکه های اجتماعی دنبال کنید</li>
+        <li style="direction:ltr;vertical-align: baseline;"> <a class="gray-text-lighten-4" href="https://www.instagram.com/soolenavvah_steelbuilding/" class="redC-text"><img width="27" style="margin-top:12px;" src="/media/Logo/instagram.png" alt=""> @soolenavvah_steelbuilding</a></li>
+        <li style="direction:ltr;">  <a class="gray-text-lighten-4" href="https://wa.me/+989141165913" class="redC-text"> <img width="27" style="margin-top:12px;" src="/media/Logo/watsapp.png" alt=""> ۰۹۱۴-۱۱۶-۵۹۱۳</a></li>
+
+              </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div style="padding: 5%;">
+  <div style="max-width:1800px; margin:auto;" class="shadow-3 uk-card uk-card uk-card-body gray-gradiant fYekan">
+    <h1 class="font-5 fYekan-bold red-text-darken-4">
+      تماس با ما
+    </h1>
+
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div  class="uk-grid-match uk-grid-medium uk-text-center " uk-grid>
+{{contactus_form.Hfield}}
+      <div class="uk-width-1">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نام و نام خانوادگی</label>
+{{contactus_form.name}}
+      </div>
+
+      <div class="uk-width-1-2@m">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >شماره تلفن</label>
+      {{contactus_form.phone_number}}
+      </div>
+
+      <div class="uk-width-1-2@m">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >ایمیل</label>
+      {{contactus_form.email}}
+      </div>
+
+      <div class="uk-width-1">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >متن درخواست یا پیشنهاد</label>
+      {{contactus_form.request}}
+      </div>
+
+      </div>
+      <br>
+      {% if contactus_form.errors %}
+      <div class="uk-width-1-1  whiteC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{contactus_form.errors}}</p>
+    </div>
+      {% endif %}
+      <button class="uk-button red uk-align-center gray-text-lighten-4 shadow-1 border-radius-2" type="submit">تایید
+    </button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

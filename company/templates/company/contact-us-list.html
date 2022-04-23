@@ -1,0 +1,44 @@
+{% extends "BaseTemplates/base1.html" %}
+{% block body_block %}
+<div style="padding: 5%;" class="uk-align-center">
+  <p class="font-5 fYekan-bold gray-text-lighten-4 uk-text-right">
+لیست تماس با ما
+</p>
+{% for contact_us in contactus_list %}
+  <div style="max-width:1800px; margin:auto;" class="border-radius-2 shadow-3 uk-card uk-card uk-card-body gray-gradiant fYekan uk-margin">
+      <div  class="uk-grid-match uk-grid-medium uk-text-center gray-text-darken-3" uk-grid>
+
+
+        {% if contact_us.name %}
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >نام</label>
+        {{contact_us.name}}
+        </div>
+        {% endif %}
+        {% if contact_us.phone_number %}
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >شماره تلفن</label>
+        {{contact_us.phone_number}}
+        </div>
+        {% endif %}
+        {% if contact_us.email %}
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >ایمیل</label>
+        {{contact_us.email}}
+        </div>
+        {% endif %}
+        {% if contact_us.request %}
+        <div class="uk-width-1-1  uk-text-justify ">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2 uk-text-justify" >متن پیام</label>
+        {{contact_us.request|linebreaks}}
+        </div>
+        {% endif %}
+        <div class="uk-text-left uk-width-1-1">
+          <a class="shadow-1 uk-width-1-6 uk-button uk-button-small border-radius-2 fYekan-bold red gray-text-lighten-3 uk-text-center uk-align-center " href="{% url 'company:contact-us-delete' contact_us.pk %}">حذف</a>
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

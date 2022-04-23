@@ -1,0 +1,60 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div  style="padding: 3%;">
+  <h1 class="uk-text-right gray-text-lighten-4 font-4 fYekan-bold">لیست نظرات</h1>
+  {% for comment in comments %}
+  <div style="max-width:1800px; margin:auto;" class="uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
+      <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
+          <img src="{{comment.picture.url}}"alt="" uk-cover>
+          <canvas ></canvas>
+      </div>
+      <div class="uk-width-4-5">
+          <div class="uk-card-body">
+            <div class="uk-card-title"> <span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span>
+               <span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span>
+            <span class="uk-align-left">
+<a class="uk-button uk-button-small border-radius-2 fYekan-bold red-text-darken-1 uk-align-center uk-text-center" href="{% url 'comment:commentdelete' comment.pk %}">حذف</a>
+            </span>  </div>
+<div class="fYekan font-4 gray-text-darken-4"> {{comment.comment|linebreaks}}</div>
+
+          </div>
+      </div>
+  </div>
+
+
+
+
+<!-- small screens -->
+<div style="margin:10px;" class="uk-card uk-card-default uk-hidden@s ">
+  <div  class="uk-card-header">
+      <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+              <img class="uk-border-circle" width="60" src="{{comment.picture.url}}">
+          </div>
+          <div class="uk-width-expand">
+              <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>
+              <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
+          </div>
+      </div>
+  </div>
+            <div class="uk-card-body">
+
+  <p class="fYekan font-4 gray-text-darken-3"> {{comment.comment}}</p>
+<p><a class="uk-button uk-button-small fYekan-bold red-text-darken-1 uk-align-left" href="{% url 'comment:commentdelete' comment.pk %}">حذف</a></p>
+            </div>
+        </div>
+
+
+  {% endfor %}
+</div>
+{% endblock %}

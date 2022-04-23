@@ -1,0 +1,78 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div  style="padding: 3%;">
+  <h1 class="uk-text-center gray-text-lighten-4 font-4 fYekan-bold">لیست پروژه های انجام شده</h1>
+  {% for project in projects %}
+  <article style="max-width:1800px; margin:auto; " class="uk-align-center uk-comment uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-visible@s">
+      <header class="uk-comment-header" style="margin-bottom:7px;">
+          <div  class=" uk-grid-medium uk-flex-middle" uk-grid>
+              <div class="uk-width-auto">
+                {% for pic in project.pictures.all %}
+        {% if forloop.first %}
+                  <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="">
+                  {% endif %}
+                  {% endfor %}
+              </div>
+              <div style="" class="uk-width-expand">
+                  <h4 class="uk-comment-title uk-margin-remove"><span class="fYekan-bold font-4 gray-text-darken-4">{{project.project_name}}</span>
+                  <span class="fYekan font-4 gray-text-darken-3">{{project.customer_name}}</span></h4>
+                  <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                    <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">ابعاد: {{project.width}}x{{project.length}}
+                    </div></li>
+                    <li><div style="font-size:16px; color:black;white-space:pre;" class="fYekan font-4 gray-text-darken-4"> تاریخ ساخت   {{project.date_of_project}}</div></li>
+
+                      <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4"> {{project.address}}</div></li>
+                      <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+                      <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  جزئیات بیشتر</a>
+                    </div></li>
+                    {% if user.is_superuser %}
+                    <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+                    <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectupdate' project.pk %}">  ویرایش</a>
+                  </div></li>
+                  {% endif %}
+                  </ul>
+              </div>
+          </div>
+      </header>
+
+  </article>
+
+
+
+
+<!-- small screens -->
+<article style="margin:5px; padding:5px;" class="font-3 fYekan gray-text-darken-3 shadow-3 uk-comment uk-comment-primary uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-hidden@s">
+    <header style="margin:0px;" class="uk-comment-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              {% for pic in project.pictures.all %}
+      {% if forloop.first %}
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="">
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="uk-width-expand">
+                <li class="font-3 uk-comment-title uk-margin-remove fYekan-bold red-text-darken-4">{{project.project_name}}</li>
+                <ul class="uk-comment-meta uk-subnav  uk-margin-remove-top">
+                    <li><span style="color:#292929;" class="fYekan font-3 gray-text-darken-3">{{project.customer_name}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="uk-comment-body">
+        <p>{{project.address}}<a style="white-space:pre; color:#cb1306;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  بیشتر...</a></p>
+    </div>
+</article>
+  {% endfor %}
+</div>
+{% endblock %}

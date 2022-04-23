@@ -1,0 +1,16 @@
+phone number validator for ordering:order page
+
+change content and image of about-us, salon, steelbuilding page
+change its picture or attributes to work good on portrait screens
+
+for vertical slider, have different pictures for different screen sizes e.g.
+a portrait pic for phone with (uk-hidden@s)
+and a landscape pic for pc screens with (uk-visible@s)
+and maybe an square pic for medium screen sizes
+
+change form page errors to have persian errors that matches ui in card and a full detail
+english message in a seperate modal
+
+link comment card to related project in home page
+
+check website seo with jetseo

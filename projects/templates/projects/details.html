@@ -1,0 +1,73 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div style="padding: 5%;">
+  <div style="max-width:1500px; margin:auto;" class="shadow-3 uk-card uk-card uk-card-body gray-gradiant fYekan" uk-grid>
+<br>
+<div  class="uk-width-1-2@m ">
+  <div style="max-width: 500px;border-radius:4px; margin-top:10px; margin-left:30px;" class="uk-position-relative uk-align- uk-visible-toggle uk-light " tabindex="-1" uk-slider="center: true">
+
+    <ul  class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+      {% for pic in project.pictures.all %}
+        <li class="uk-width-3-4 ">
+            <a class="uk-panel uk-inline"  href="{{pic.picture.url}}" >
+                <img width="2000" height="2000" src="{{pic.picture.url}}" alt="">
+
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a style="color:#f52d1b" class="uk-position-center-left uk-position-large " href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a style="color:#f52d1b" class="uk-position-center-right uk-position-large " href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+</div>
+<div class="uk-width-1-2@m" style="white-space:pre;">
+
+  <span style="white-space:pre;" class="fYekan-bold font-4 red-text-darken-4">{{project.project_name}}  </span> <span class="fYekan font-4 gray-text-darken-3">{{project.customer_name}}</span>
+
+  <span style="white-space:pre;" class="fYekan font-4 gray-text-darken-4">تاریخ انجام پروژه  {{project.date_of_project}}</span>
+
+  <span style="white-space:pre;" class="fYekan font-4 gray-text-darken-4">به طول  {{project.length}}  عرض  {{project.width}}  و ارتفاع ستون  {{project.height}}</span>
+
+  <span class="fYekan font-4 gray-text-darken-4">{% if project.is_local %}واقع در ایران{% else %}واقع در خارج از کشور{% endif %}</span>
+</div>
+<div class="uk-width-1-1@m" >
+  <span class="fYekan font-4 gray-text-darken-4">{{project.address}}</span>
+</div>
+<div class="uk-width-1-4@m uk-text-right gray-text-darken-3 uk-width-1-2">
+  <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >نوع سقف سالن</label><br><br>
+{{project.roof_type}}
+</div>
+<div class="uk-width-1-4@m uk-width-1-2 uk-text-right gray-text-darken-3">
+  <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >نوع کاربری سالن</label><br><br>
+{{project.use_type}}
+</div>
+{% if project.description %}
+<div class="uk-width-1-2@m uk-text-right gray-text-darken-3">
+  <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >توضیحات دیگر</label><br>
+{{project.description|linebreaks}}
+</div>
+{% endif %}
+{% if project.contact_info %}
+<div class="uk-width-1-2@m uk-text-right gray-text-darken-3">
+  <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-2" >اطلاعات تماس</label><br>
+{{project.contact_info|linebreaks}}
+</div>
+{% endif %}
+<div style="white-space:pre;" class="uk-width-1-1"></div>
+  </div>
+
+
+</div>
+{% endblock %}

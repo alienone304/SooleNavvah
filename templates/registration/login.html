@@ -1,0 +1,55 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div style="padding: 5%;">
+  <div class="uk-width-1-6@s">
+
+  </div>
+  <div style="max-width:1800px; margin:auto; border-right:5px solid red;" class="uk-width-2-3@s shadow-3 uk-card uk-card uk-card-body gray-gradiant fYekan border-radius-2">
+    <h1 class="font-5 fYekan-bold red-text-darken-4">
+ورود
+    </h1>
+
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div  class="uk-grid-match uk-grid-medium uk-text-center " uk-grid>
+      <div class="uk-width-1-2@m">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نام کاربری</label>
+{{form.username}}
+      </div>
+
+      <div class="uk-width-1-2@m">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >رمز عبور</label>
+      {{form.password}}
+      </div>
+
+      </div>
+      <br>
+      {% if form.errors %}
+      <div class="uk-width-1-1  whiteC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{form.errors}}</p>
+    </div>
+      {% endif %}
+      <button class="uk-button red uk-align-center gray-text-lighten-4 shadow-1 border-radius-2" type="submit">تایید
+    </button>
+    </form>
+
+  </div>
+  <div class="uk-width-1-6@s">
+
+  </div>
+</div>
+{% endblock %}

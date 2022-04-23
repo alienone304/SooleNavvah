@@ -1,0 +1,31 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div  style="padding: 5%;">
+<p class="fYekan-bold font-6 uk-text-center gray-text-lighten-4" >پنل مدیریت</p>
+<br>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'projects:createproject' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">افزودن پروژه</a>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'projects:projectlist' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">لیست پروژه ها</a>
+<div style="margin-bottom:10px;" class="" ></div>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'comment:createcomment' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">افزودن نظر</a>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'comment:commentlist' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">لیست نظرات</a>
+<div style="margin-bottom:10px;" ></div>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'gallery:createphoto' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">افزودن عکس به گالری</a>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'gallery:photolist' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">لیست عکس های گالری</a>
+<div style="margin-bottom:10px;" ></div>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'company:contact-us-list' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">لیست تماس با ما</a>
+<div style="margin-bottom:10px;" ></div>
+<a style="max-width:1500px;margin-bottom:10px;" href="{% url 'ordering:orderlist' %}" class="fYekan font-5 shadow-2 uk-button gray-lighten-3 red-text-darken-4 uk-width-1-1 border-radius-2 ">لیست سفارشات</a>
+<div style="margin-bottom:10px;" ></div>
+<a style="max-width:1500px;margin-bottom:10px;"  class="fYekan font-5 uk-button gray-lighten-3 gray-text-darken-1 uk-width-1-1 border-radius-2 " disabled>افزودن کاربر</a>
+</div>
+{% endblock %}

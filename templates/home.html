@@ -1,0 +1,231 @@
+{% extends "BaseTemplates/baseslider.html" %}
+{% block body_block %}
+
+  <div  class="section section1 " >
+    <div class="uk-inline uk-hidden@s">
+        <img src="/media/statics/steel_construction2.jpg" style="margin-top:-100px;"  alt="">
+        <div class="uk-overlay uk-position-top" style="padding-top:70px;padding-right:10px;">
+            <img class="uk-text-center" src="/media/statics/Logo.png" width="200" alt="سوله سازی نواح">
+        </div>
+    </div>
+    <div class="uk-inline uk-visible@s">
+        <img  src="/media/statics/steel_construction.jpg" width="3850" alt="">
+        <div >
+            <div class="uk-overlay uk-position-top-center" style="padding-top:20px;">
+              <img style="background: rgba(0, 0, 0, 0.29);border-radius: 43%;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(2.4px);-webkit-backdrop-filter: blur(2.4px);" class="uk-text-center" src="/media/statics/Logo.png" width="400" alt="سوله سازی نواح">
+          </div>
+        </div>
+
+    </div>
+
+
+
+  </div>
+
+  <div style="z-index:20" class="after-sections red-gradiant">
+    <div style="padding:3%">
+<br>
+<p style="max-width:1300" class="font-5 gray-text-lighten-4 fYekan uk-text-justify">
+سوله سازی نواح در سال ۱۳۷۹ با هدف ایجاد ارزش افزوده و ارتقای جایگاه
+سازه های صنعتی با نام اختصاصی مرکز تخصصی سوله و سازه های صنعتی نواح فعالیت خود را در شهر تبریز
+آغاز کرد.
+طراحی ساخت و اجرای صدها مورد سوله های صنعتی سازه های فولادی و جرثقیل های سقفی  از عمده ی فعالیت های
+این مرکز به حساب می آید که طی ۲۰ سال گذشته با تلاش بی وقفه کادر مجرب فنی مهندسی و تکنسین های
+ماهر این مرکز تخصصی به ثمر نشسته است.
+<br>
+در حال حاضر مرکز تخصصی سوله نواح به عنوان یکی از بزرگترین مجموعه های مطرح در سازه های
+صنعتی ایران مشغول طراحی اجرا و ساخت پروژه های متعددی است که هر کدام از آنها ویژگی های
+منحصر به فردی دارند.
+<br>
+وجود پتانسیل های علمی در این مرکز تخصصی همراه با مجهزترین دستگاه ها و ماشین آلات ساخت سازه های
+فولادی سوله سازی نواح را قادر نموده بزرگترین پروژه های فولادی را در مناسب ترین زمان ممکن
+به سرانجام برساند.
+</p>
+<div class="fYekan gray-text-lighten-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-3@s uk-text-center" uk-grid>
+
+<div class="">
+<a style="height:50px;   padding-top:9px;" class="font-5 uk-button border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'company:contactus' %}">تماس با ما</a>
+</div>
+<div class="">
+<a style="height:50px;   padding-top:9px;" class="font-5 uk-button uk-button-large border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'ordering:order' %}">سفارش ساخت</a>
+</div>
+<div class="">
+<a style="height:50px;   padding-top:9px;" class="font-5 uk-button border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'projects:projectlist' %}">لیست پروژه ها</a>
+</div>
+
+
+</div>
+<br>
+
+</div>
+<div style="padding:5%;">
+<h2 class="font-7 white-text fYekan-bold">برخی پروژه های انجام شده ی گروه صنعتی نواح</h2>
+  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="velocity:0.7;center: true; autoplay: true;autoplay-interval: 2350;">
+
+    <ul class="uk-slider-items uk-grid uk-grid-match">
+
+{% for project in projects %}
+        <li class="uk-width-1-1">
+          <div style="padding:5%" class="">
+
+<article style="max-width:1800px; margin:auto; " class="uk-align-center uk-comment shadow-3 uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-visible@s">
+    <header class="uk-comment-header" style="margin-bottom:7px;">
+        <div  class=" uk-grid-medium uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              {% for pic in project.pictures.all %}
+      {% if forloop.first %}
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="">
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div style="" class="uk-width-expand">
+                <h4 class="uk-comment-title uk-margin-remove"><span class="fYekan-bold font-4 gray-text-darken-4">{{project.project_name}}</span>
+                <span class="fYekan font-4 gray-text-darken-3">{{project.customer_name}}</span></h4>
+                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                  <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">ابعاد: {{project.width}}x{{project.length}}
+                  </div></li>
+                  <li><div style="font-size:16px; color:black;white-space:pre;" class="fYekan font-4 gray-text-darken-4"> تاریخ ساخت   {{project.date_of_project}}</div></li>
+
+                    <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4"> {{project.address}}</div></li>
+                    <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+                    <a style="white-space:pre; color:gray;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  جزئیات بیشتر</a>
+                  </div></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+</article>
+
+
+</div>
+
+<!-- small screens -->
+<article style="margin-top:5px; padding:5px;" class="font-3 fYekan gray-text-darken-3 shadow-3 uk-comment uk-comment-primary uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-hidden@s">
+    <header style="margin:5px;" class="uk-comment-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              {% for pic in project.pictures.all %}
+      {% if forloop.first %}
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="">
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="uk-width-expand">
+                <li class="font-3 uk-comment-title uk-margin-remove fYekan-bold red-text-darken-4">{{project.project_name}}</li>
+                <ul class="uk-comment-meta uk-subnav  uk-margin-remove-top">
+                    <li><span style="color:#292929;" class="fYekan font-3 gray-text-darken-3">{{project.customer_name}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div style="margin:10px;" class="uk-comment-body">
+        <p>{{project.address}}<a style="white-space:pre; color:#cb1306;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  بیشتر...</a></p>
+    </div>
+</article>
+        </li>
+{% endfor %}
+
+</ul>
+
+<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+
+</div>
+<section class="">
+
+
+
+<div style="padding: 5%;">
+
+    <div class="fYekan gray-text-lighten-4 font-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-3@s uk-text-center" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+<span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:heart;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
+
+<br>
+<p class="font-4 white-text fYekan uk-text-justify uk-text-center">
+گروه صنعتی نواح نامی آشنا در صنعت سوله و سازه های فلزی در ایران
+بوده که با استفاده از مدیران خون گرم و مجرب در راستای شکوفایی صنعت کشور و
+رضایتمندی مداوم مشتریان استاندارد ها و اصول اخلاقی را در دستور کار خود قرار داده است.
+</p>
+            </div>
+         </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+<span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow"  uk-icon="icon:cog;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
+<br>
+<p class="font-4 white-text fYekan uk-text-justify uk-text-center">
+استفاده از پیشرفته ترین تجهیزات و تکنولوژی ساخت اسکلت فلزی سوله.
+دارا بودن کادر فنی مجرب و دانش مهندسی کارآمد در تمامی مراحل
+طراحی تا اجرا.سالها سابقه درخشان و بالطبع تجربه مفید.</p>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+<span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:clock;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
+<br>
+<p class="font-4 white-text fYekan uk-text-justify uk-text-center">
+رعایت دقیق برنامه زمان بندی و تعهد به اجرای پروژه در
+ برنامه زمانی ارایه شده زیر نظر واحد کنترل پروژه و
+Planning شرکت خواهد بود که طبعا باعث صرفه
+ جویی در هزینه های مشتری می شود.</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<br>
+<div style="padding:3%">
+<h2 class="font-7 white-text fYekan-bold" >نظرات برخی مشتریان</h2>
+<br>
+{% for comment in comments %}
+
+<div style="max-width:1800px; margin:auto;" class="shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
+    <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
+        <img src="{{comment.picture.url}}"alt="" uk-cover>
+        <canvas ></canvas>
+    </div>
+    <div class="uk-width-4-5">
+        <div class="uk-card-body">
+          <div class="uk-card-title"> <span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span>
+             <span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span>
+ </div>
+<div class="fYekan font-4 gray-text-darken-4"> {{comment.comment|linebreaks}}</div>
+
+        </div>
+    </div>
+</div>
+
+
+<br><br>
+<!-- small screens -->
+<div style="margin:10px;" class="uk-card uk-card-default uk-hidden@s shadow-3">
+<div  class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+            <img class="uk-border-circle" width="60" src="{{comment.picture.url}}">
+        </div>
+        <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>
+            <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
+        </div>
+    </div>
+</div>
+          <div class="uk-card-body">
+
+<p class="fYekan font-4 gray-text-darken-3"> {{comment.comment}}</p>
+          </div>
+      </div>
+
+
+{% endfor %}
+
+</div>
+<br><br>
+</section>
+
+{% endblock %}

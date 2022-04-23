@@ -1,0 +1,151 @@
+{% extends "BaseTemplates/base1.html" %}
+
+{% block head_block %}
+
+<title>
+
+</title>
+{% endblock %}
+
+{% block body_block %}
+
+
+<div style="padding: 5%;">
+  <div style="max-width:1800px; margin:auto;" class="shadow-3 uk-card uk-card uk-card-body gray-gradiant fYekan">
+    <h1 class="font-5 fYekan-bold red-text-darken-4">
+افزودن نظر
+    </h1>
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+    <ul uk-accordion="multiple: true">
+        <li class="uk-open" style="border-right:3px #f52d1b solid; padding:10px;">
+            <a style="padding:10px;" class="uk-accordion-title red white-text fYekan" href="#">اطلاعات ضروری</a>
+            <div class="uk-accordion-content  fYekan">
+              <div  class="uk-grid-match uk-grid-medium uk-text-center " uk-grid>
+        {{form.Hfield}}
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >شماره تماس</label>
+        {{form.phone_number}}
+        </div>
+              <div class="uk-width-1-2@m">
+                <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نوع سازه</label>
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" id="1" name="use" value="1" checked> سوله</label><br>
+                <label><input class="uk-radio" type="radio" id="2" name="use" value="2">  سازه فلزی</label><br>
+              </div>
+          </div>
+
+              <div class="uk-width-1-2@m">
+                <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >طول</label>
+              {{form.length}}
+              </div>
+
+
+            <div class="uk-width-1-2@m">
+              <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >عرض</label>
+            {{form.width}}
+            </div>
+
+            <div class="uk-width-1-1@m">
+              <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >آدرس</label>
+            {{form.address}}
+            </div>
+          </div>
+
+            </div>
+        </li>
+        <li style="border-right:3px #f52d1b solid; padding:10px;">
+            <a style="padding:10px;" class="uk-accordion-title red white-text fYekan" href="#">اطلاعات اختیاری</a>
+            <div class="uk-accordion-content  fYekan">
+              <div  class="uk-grid-match uk-grid-medium uk-text-center " uk-grid>
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >نام</label>
+        {{form.name}}
+        </div>
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >کاربری سازه</label>
+        {{form.type_of_use}}
+        </div>
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >ارتفاع سازه</label>
+        {{form.height}}
+        </div>
+        <div class="uk-width-1-2@m">
+          <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >تعداد طبقات</label>
+        {{form.number_of_floor}}
+        </div>
+              <div class="uk-width-1-3@m">
+                <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >نوع سقف سالن</label>
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                  <label><input class="uk-radio" type="radio" id="1" name="type" value="1"> شیب دار دو طرفه</label>
+                  <label><input class="uk-radio" type="radio" id="2" name="type" value="2">  قوسی</label>
+                  <label><input class="uk-radio" type="radio" id="3" name="type" value="3">  شیب دار تک طرفه</label>
+              </div>
+          </div>
+          <div class="uk-width-1-3@m">
+            <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >دارای بچه سوله</label>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <label><input class="uk-radio" type="radio" id="1" name="has_child_salon" value="1" checked> خیر</label>
+            <label><input class="uk-radio" type="radio" id="2" name="has_child_salon" value="2">  بله</label>
+          </div>
+      </div>
+      <div class="uk-width-1-3@m">
+        <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4" >دارای نیم طبقه</label>
+        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+        <label><input class="uk-radio" type="radio" id="1" name="has_half_floor" value="1" checked> خیر</label><br>
+        <label><input class="uk-radio" type="radio" id="2" name="has_half_floor" value="2">  بله</label><br>
+      </div>
+  </div>
+
+              <div class="uk-width-1-2@m">
+                <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >دارای جرثقیل</label>
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" id="hasnt_crane" onclick="validate()" name="has_crane" value="1" checked> خیر</label>
+                <label><input class="uk-radio" type="radio" id="has_crane" onclick="validate()" name="has_crane" value="2">  بله</label>
+              </div>
+            </div>
+
+            <div class="uk-width-1-2@m" id="crane_weight" style="display:none; margin-top:23px;">
+              <label class="uk-form-label uk-text-right border-bottom form-3 gray-text-darken-4"  >تناژ جرثقیل</label>
+            {{form.crane_weight}}
+            </div>
+          </div>
+
+
+        </div>
+
+
+        </li>
+      </ul>
+
+
+      <br>
+      {% if form.errors %}
+      <div class="uk-width-1-1  whiteC-text"><p>
+      خطایی رخ داد.
+      لطفا فیلد هارا دوباره با دقت پر کنید.<br>
+      در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
+
+      {{form.errors}}</p>
+    </div>
+      {% endif %}
+      <button class="uk-button red uk-align-center gray-text-lighten-4 shadow-1 border-radius-2" type="submit">تایید
+    </button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
+{% block script_block %}
+<script type="text/javascript">
+    function validate() {
+document.getElementById("crane_weight");
+if(document.getElementById('hasnt_crane').checked) {
+  crane_weight.style.display = "none";
+}
+else if(document.getElementById('has_crane').checked) {
+  crane_weight.style.display = "";
+}
+}
+</script>
+{% endblock %}
