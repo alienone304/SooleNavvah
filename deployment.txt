@@ -13,4 +13,6 @@ english message in a seperate modal
 
 link comment card to related project in home page
 
+change text for about-us salon and steelbuilding page.
+
 check website seo with jetseo
