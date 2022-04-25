@@ -33,7 +33,8 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [config['ALLOWED_HOST1'],config['ALLOWED_HOST2'],config['ALLOWED_HOST3']]
+ALLOWED_HOSTS = [config['ALLOWED_HOST1'],config['ALLOWED_HOST2'],config['ALLOWED_HOST3']
+                    ,config['ALLOWED_HOST4'],config['ALLOWED_HOST5']]
 
 
 # Application definition
