@@ -7,7 +7,7 @@ img{
   background: rgb(242,242,242); background: linear-gradient(144deg, rgba(242,242,242,1) 24%, rgba(232,232,232,1) 82%);
 }
 .red-gradiant{
-  background: rgb(203,19,6);background: linear-gradient(144deg, rgba(203,19,6,1) 24%, rgba(66,0,0,1) 83%);
+  background: rgb(203,19,6); background: linear-gradient(107deg, rgba(203,19,6,1) 5%, rgba(69,2,0,1) 100%);
 }
 .red-gradiant-bottom{
   background: rgb(203,19,6);

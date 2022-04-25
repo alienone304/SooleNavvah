@@ -4,13 +4,10 @@
   <div class="inner">
 
     <div class="uk-inline uk-hidden@s">
-        <img src="/media/statics/steel_construction2.jpg"  alt="">
-        <div class="uk-overlay uk-position-top" style="padding-top:140px;padding-right:10px;">
-            <img class="uk-text-center" src="/media/statics/Logo.png" width="200" alt="سوله سازی نواح">
-        </div>
+        <img src="/media/statics/portrait1.jpg"  alt="">
     </div>
     <div class="uk-inline uk-visible@s">
-        <img  src="/media/statics/steel_construction.jpg" width="3850" alt="">
+        <img  src="/media/statics/landscape1.jpg" width="3850" alt="">
         <div >
             <div class="uk-overlay uk-position-top-center" style="padding-top:110px;">
               <img style="background: rgba(0, 0, 0, 0.29);border-radius: 43%;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(2.4px);-webkit-backdrop-filter: blur(2.4px);" class="uk-text-center" src="/media/statics/Logo.png" width="400" alt="سوله سازی نواح">
@@ -22,8 +19,22 @@
 
 </div>
 </section>
+<section>
+  <div class="inner">
 
-  <div style="z-index:20" class=" red-gradiant">
+    <div class="uk-inline uk-hidden@s">
+        <img src="/media/statics/portrait2.jpg"  alt="">
+    </div>
+    <div class="uk-inline uk-visible@s">
+        <img  src="/media/statics/landscape2.jpg" width="3850" alt="">
+
+    </div>
+
+
+</div>
+</section>
+
+  <div style="z-index:20" class="red-gradiant">
     <div style="padding:3%">
 <br><br><br><br><br>
 <p style="max-width:1300" class="font-5 gray-text-lighten-4 fYekan uk-text-justify">
@@ -60,8 +71,8 @@
 
 </div>
 <div style="padding:5%;">
-<h2 class="font-7 white-text fYekan-bold">برخی پروژه های انجام شده ی گروه صنعتی نواح</h2>
-  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="velocity:0.7;center: true; autoplay: true;autoplay-interval: 2350;">
+<h2 class="font-7 white-text fYekan-bold">برخی پروژه های انجام شده‌ی گروه صنعتی نواح</h2>
+  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="velocity:0.7;center: true; autoplay: true;autoplay-interval: 3250;">
 
     <ul class="uk-slider-items uk-grid uk-grid-match">
 
@@ -161,7 +172,7 @@
 <p class="font-4 white-text fYekan uk-text-justify uk-text-center">
 استفاده از پیشرفته ترین تجهیزات و تکنولوژی ساخت اسکلت فلزی سوله.
 دارا بودن کادر فنی مجرب و دانش مهندسی کارآمد در تمامی مراحل
-طراحی تا اجرا.سالها سابقه درخشان و بالطبع تجربه مفید.</p>
+طراحی تا اجرا و ترکیب دانش و صنعت در سوله سازی نواح</p>
             </div>
         </div>
         <div>
@@ -170,9 +181,9 @@
 <br>
 <p class="font-4 white-text fYekan uk-text-justify uk-text-center">
 رعایت دقیق برنامه زمان بندی و تعهد به اجرای پروژه در
- برنامه زمانی ارایه شده زیر نظر واحد کنترل پروژه و
-Planning شرکت خواهد بود که طبعا باعث صرفه
- جویی در هزینه های مشتری می شود.</p>
+ برنامه زمانی ارایه شده به لطف کنترل پروژه‌ی موفق سال هاست که در دستور کار این گروه
+ صنعتی قرار گرفته است که باعث صرفه جویی در هزینه مشتری خواهد شد.
+</p>
             </div>
         </div>
     </div>
@@ -185,7 +196,7 @@ Planning شرکت خواهد بود که طبعا باعث صرفه
 <br>
 {% for comment in comments %}
 
-<div style="max-width:1800px; margin:auto;" class="shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
+<div style="max-width:1800px; margin:auto;" class="border-radius-3 shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
     <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
         <img src="{{comment.picture.url}}"alt="" uk-cover>
         <canvas ></canvas>
@@ -204,11 +215,11 @@ Planning شرکت خواهد بود که طبعا باعث صرفه
 
 <br><br>
 <!-- small screens -->
-<div style="margin:10px;" class="uk-card uk-card-default uk-hidden@s shadow-3">
+<div style="margin:10px;" class="uk-card border-radius-3 uk-card-default uk-hidden@s shadow-3">
 <div  class="uk-card-header">
     <div class="uk-grid-small uk-flex-middle" uk-grid>
         <div class="uk-width-auto">
-            <img class="uk-border-circle" width="60" src="{{comment.picture.url}}">
+            <img class="uk-border-circle" width="90" src="{{comment.picture.url}}">
         </div>
         <div class="uk-width-expand">
             <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>

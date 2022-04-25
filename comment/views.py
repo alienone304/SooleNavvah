@@ -43,4 +43,4 @@ def CommentListView(request):
 def DeleteCommentView(request, pk):
     comment = get_object_or_404(CommentModel, pk = pk)
     comment.delete()
-    return HttpResponseRedirect(reverse('comment:list'))
+    return HttpResponseRedirect(reverse('comment:commentlist'))

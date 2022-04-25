@@ -71,6 +71,11 @@
     </header>
     <div class="uk-comment-body">
         <p>{{project.address}}<a style="white-space:pre; color:#cb1306;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  بیشتر...</a></p>
+        {% if user.is_superuser %}
+        <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+        <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectupdate' project.pk %}">  ویرایش</a>
+      </div></li>
+      {% endif %}
     </div>
 </article>
   {% endfor %}

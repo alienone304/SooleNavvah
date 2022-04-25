@@ -13,7 +13,7 @@
 <div  style="padding: 3%;">
   <h1 class="uk-text-right gray-text-lighten-4 font-4 fYekan-bold">لیست نظرات</h1>
   {% for comment in comments %}
-  <div style="max-width:1800px; margin:auto;" class="uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
+  <div style="max-width:1800px; margin:auto;" class="border-radius-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
       <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
           <img src="{{comment.picture.url}}"alt="" uk-cover>
           <canvas ></canvas>
@@ -35,11 +35,11 @@
 
 
 <!-- small screens -->
-<div style="margin:10px;" class="uk-card uk-card-default uk-hidden@s ">
+<div style="margin:10px;" class="border-radius-3 uk-card uk-card-default uk-hidden@s ">
   <div  class="uk-card-header">
       <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
-              <img class="uk-border-circle" width="60" src="{{comment.picture.url}}">
+              <img class="uk-border-circle" width="90" src="{{comment.picture.url}}">
           </div>
           <div class="uk-width-expand">
               <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>
