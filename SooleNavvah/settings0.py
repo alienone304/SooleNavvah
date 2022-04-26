@@ -17,6 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 from pathlib import Path
 import os
+import json
 
 with open('/home/server_user/django_env/config.json') as config_file:
     config = json.load(config_file)
