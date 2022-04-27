@@ -11,4 +11,11 @@ class CommentModel(models.Model):
     comment = models.TextField(null = False, blank = False)
     picture = models.ImageField(blank = False, null = False,
                                 upload_to=r'comment', default = r'comment/default/default.jpg')
-    created_at = models.DateTimeField(default=timezone.now)                            
+    created_at = models.DateTimeField(default=timezone.now)
+
+
+class FamousCustomerModel(models.Model):
+    picture = models.ImageField(default = r'comment/default/default.jpg',
+                                 upload_to=r'comment/logos/')
+    description = models.TextField(null = True, blank = True)
+    created_at = models.DateTimeField(default=timezone.now)

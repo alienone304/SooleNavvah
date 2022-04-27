@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
 #handmade
-from comment.models import CommentModel
-from comment.forms import CommentForm
+from comment.models import CommentModel, FamousCustomerModel
+from comment.forms import CommentForm, FamousCustomeForm
 from accounts.decorators import superuser_required
 
 
@@ -44,3 +44,43 @@ def DeleteCommentView(request, pk):
     comment = get_object_or_404(CommentModel, pk = pk)
     comment.delete()
     return HttpResponseRedirect(reverse('comment:commentlist'))
+
+
+@login_required
+@superuser_required
+def CreateFamousCustomerView(request):
+    if request.method == 'POST':
+        famouscustomer_form = FamousCustomeForm(data = request.POST)
+        if famouscustomer_form.is_valid():
+
+             logo = famouscustomer_form.save(commit=False)
+             if 'picture' in request.FILES:
+                logo.picture = request.FILES['picture']
+             logo.save()
+             return HttpResponseRedirect(reverse('accounts:dashboard'))
+        else:
+            print(famouscustomer_form.errors)
+    else:
+        famouscustomer_form = FamousCustomeForm()
+    return render(request,'comment/createfamouscustomer.html',
+                  {'form':famouscustomer_form})
+
+
+@login_required
+@superuser_required
+def FamousCustomerListView(request):
+    try:
+        famouscustomers = get_list_or_404(FamousCustomerModel)
+        return render(request,'comment/famouscustomerlist.html',
+                      {'famouscustomers':famouscustomers})
+    except:
+        return render(request,'comment/famouscustomerlist.html')
+
+
+
+@login_required
+@superuser_required
+def FamousCustomerDeleteView(request, pk):
+    famouscustomers = get_object_or_404(FamousCustomerModel, pk = pk)
+    famouscustomers.delete()
+    return HttpResponseRedirect(reverse('comment:famouscustomerlist'))

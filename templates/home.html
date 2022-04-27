@@ -9,10 +9,10 @@
 <section>
   <div class="inner">
 
-    <div class="uk-inline uk-hidden@s">
+    <div class="uk-inline uk-hidden@m">
         <img src="/media/statics/portrait1.jpg"  alt="سوله سازی تبریز">
     </div>
-    <div class="uk-inline uk-visible@s">
+    <div class="uk-inline uk-visible@m">
         <img  src="/media/statics/landscape1.jpg" width="3850" alt="سوله سازی تبریز">
         <div >
             <div class="uk-overlay uk-position-top-center" style="padding-top:110px;">
@@ -28,10 +28,10 @@
 <section>
   <div class="inner">
 
-    <div class="uk-inline uk-hidden@s">
+    <div class="uk-inline uk-hidden@m">
         <img src="/media/statics/portrait2.jpg"  alt="سوله سازی تبریز">
     </div>
-    <div class="uk-inline uk-visible@s">
+    <div class="uk-inline uk-visible@m">
         <img  src="/media/statics/landscape2.jpg" width="3850" alt="سوله سازی تبریز">
 
     </div>
@@ -61,7 +61,7 @@
 فولادی سوله سازی نواح را قادر نموده بزرگترین پروژه های فولادی را در مناسب ترین زمان ممکن
 به سرانجام برساند.
 </p>
-<div class="fYekan gray-text-lighten-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-3@s uk-text-center" uk-grid>
+<div class="fYekan gray-text-lighten-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
 
 <div class="">
 <a style="height:50px;   padding-top:9px;" class="font-5 uk-button border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'gallery:gallery' %}">گالری</a>
@@ -78,6 +78,7 @@
 <br>
 
 </div>
+<br>
 <div style="padding:5%;">
 <h2 class="font-7 white-text fYekan-bold">برخی پروژه های انجام شده‌ی گروه صنعتی نواح</h2>
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="velocity:0.7;center: true; autoplay: true;autoplay-interval: 3250;">
@@ -88,7 +89,7 @@
         <li class="uk-width-1-1">
           <div style="padding:5%" class="">
 
-<article style="max-width:1800px; margin:auto; " class="border-3 uk-align-center uk-comment shadow-3 uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-visible@s">
+<article style="max-width:1800px; margin:auto; " class="border-3 uk-align-center uk-comment shadow-3 uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-visible@m">
     <header class="uk-comment-header" style="margin-bottom:7px;">
         <div  class=" uk-grid-medium uk-flex-middle" uk-grid>
             <div class="uk-width-auto">
@@ -121,7 +122,7 @@
 </div>
 
 <!-- small screens -->
-<article style="margin-top:5px; padding:5px;" class="font-3 fYekan gray-text-darken-3 border-3 shadow-3 uk-comment uk-comment-primary uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-hidden@s">
+<article style="margin-top:5px; padding:5px;" class="font-3 fYekan gray-text-darken-3 border-3 shadow-3 uk-comment uk-comment-primary uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-hidden@m">
     <header style="margin:5px;" class="uk-comment-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-auto">
@@ -157,11 +158,11 @@
 <section class="">
 
 
-
+<br><br><br><br>
 <div style="padding: 5%;">
 <h2 class="font-7 white-text fYekan-bold">سوله سازی نواح، معتبرترین سوله سازی تبریز</h2>
 <br>
-    <div class="fYekan gray-text-lighten-4 font-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-3@s uk-text-center" uk-grid>
+    <div class="fYekan gray-text-lighten-4 font-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
         <div>
             <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
 <span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:heart;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
@@ -199,13 +200,38 @@
 
 
 </div>
+
+
+<br><br><br>
+<div style="padding:3%">
+<h2 class="font-7 white-text fYekan-bold" >برخی از مشتریان</h2>
 <br>
+
+
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000">
+    <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+        {% for famouscustomer in famouscustomers %}
+        <li class="uk-width-1-1 uk-width-1-3@s">
+            <a class="uk-panel uk-inline" href="{{famouscustomer.picture.url}}"  >
+                <img width="2000" height="2000" src="{{famouscustomer.picture.url}}" alt="{{famouscustomer.description}}"  >
+            </a>
+        </li>
+{% endfor %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+
+</div>
+
+<br>
+<br><br>
 <div style="padding:3%">
 <h2 class="font-7 white-text fYekan-bold" >نظرات برخی مشتریان</h2>
-<br>
 {% for comment in comments %}
 
-<div style="max-width:1800px; margin:auto;" class="border-radius-3 shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@s" uk-grid>
+<div style="max-width:1800px; margin:auto;" class="border-radius-3 shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@m" uk-grid>
     <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
         <img src="{{comment.picture.url}}"alt="" uk-cover>
         <canvas ></canvas>
@@ -223,6 +249,27 @@
 
 
 <br><br>
+<!-- medium screens -->
+<div style="margin:10px;" class="uk-card border-radius-3 uk-card-default uk-hidden@m uk-visible@s  shadow-3">
+<div  class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+            <img class="uk-border-circle" width="200" src="{{comment.picture.url}}">
+        </div>
+        <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>
+            <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
+        </div>
+    </div>
+</div>
+          <div class="uk-card-body">
+
+<p class="fYekan font-4 gray-text-darken-3"> {{comment.comment}}</p>
+          </div>
+      </div>
+
+
+
 <!-- small screens -->
 <div style="margin:10px;" class="uk-card border-radius-3 uk-card-default uk-hidden@s shadow-3">
 <div  class="uk-card-header">

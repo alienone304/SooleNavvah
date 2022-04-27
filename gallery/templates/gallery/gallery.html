@@ -30,7 +30,7 @@
         <div class="row">
             <div class="blog-masonry masonry-true" uk-lightbox="animation: slide">
               {% for photo in photos %}
-                <div class="post-masonry col-md-4 col-sm-6 ">
+                <div class="post-masonry col-lg-4 col-md-4 col-sm-6 ">
                     <div class="post-thumb shadow-3">
                       <a class="uk-inline" href="{{photo.picture.url}}" data-caption="{{photo.description}}">
                           <img src="{{photo.picture.url}}"  alt="{{photo.description}}" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">

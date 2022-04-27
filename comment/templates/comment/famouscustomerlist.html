@@ -1,0 +1,72 @@
+{% extends "BaseTemplates/base1.html" %}
+{% load static %}
+{% block head_block %}
+
+<meta name=”robots” content=”noindex,nofollow”>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+لیست عکس ها | سوله سازی نواح تبریز
+</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+<link rel="stylesheet" href="{% static 'masonry_gallery/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'masonry_gallery/css/templatemo-style.css' %}">
+<script src="{% static 'masonry_gallery/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+<style media="screen">
+  body{
+  background: rgb(203,19,6); background: linear-gradient(107deg, rgba(203,19,6,1) 5%, rgba(69,2,0,1) 100%);
+
+}
+
+</style>
+{% endblock %}
+
+{% block body_block %}
+<br><br><br>
+<div class="main-posts">
+    <div class="container">
+        <div class="row">
+            <div class="blog-masonry masonry-true">
+              {% for famouscustomer in famouscustomers %}
+                <div class="post-masonry col-md-4 col-sm-6 ">
+                    <div class="post-thumb shadow-3">
+                          <img src="{{famouscustomer.picture.url}}"  alt="{{famouscustomer.description}}" >
+
+                        <div class="post-hover text-center">
+                            <div class="inside fYekan">
+                                <a class="uk-button uk-button-small red white-text uk-width-1-1 border-radius-2" href="{% url 'comment:famouscustomerdelete' famouscustomer.pk %}">حذف</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                </div>
+                </div>
+                </div>
+
+
+
+
+
+{% endblock %}
+
+{% block script_block %}
+
+<script src="{% static 'masonry_gallery/js/vendor/jquery-1.10.2.min.js' %}"></script>
+<script src="{% static 'masonry_gallery/js/min/plugins.min.js' %}"></script>
+<script src="{% static 'masonry_gallery/js/min/main.min.js' %}"></script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(window).load(function() { // makes sure the whole site is loaded
+        $('#loader').fadeOut(); // will first fade out the loading animation
+            $('#loader-wrapper').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+        $('body').delay(350).css({'overflow-y':'visible'});
+    })
+    //]]>
+</script>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django import forms
 from django.core import validators
-from comment.models import CommentModel
+from comment.models import CommentModel, FamousCustomerModel
 
 class CommentForm(forms.ModelForm):
     Hfield = forms.CharField(required=False,widget =forms.HiddenInput, validators=[validators.MaxLengthValidator(0)])
@@ -14,5 +14,15 @@ class CommentForm(forms.ModelForm):
             'project': forms.Select(attrs={'class':'uk-select fYekan'},),
             'picture': forms.FileInput(attrs={'class':'uk-button fYekan'},),
             'comment': forms.Textarea(attrs={'class':'uk-textarea fYekan','rows':'4','placeholder':'دیدگاه مشتری را در این قسمت وارد کنید.'},),
-            
+
+        }
+
+
+class FamousCustomeForm(forms.ModelForm):
+    class Meta():
+        model = FamousCustomerModel
+        fields = ('picture','description',)
+        widgets = {
+            'picture': forms.FileInput(attrs={'class':'uk-button',},),
+            'description': forms.Textarea(attrs={'class':'uk-textarea fYekan','rows':'2','placeholder':'توضیحات'},),
         }
