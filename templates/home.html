@@ -1,6 +1,7 @@
 {% extends "BaseTemplates/basedocslider.html" %}
 {% block head_block %}
 <meta name=”robots” content=”index,follow”>
+<meta name="description" content="سوله سازی نواح یکی از شناخته شده ترین نام ها در صنعت سوله و سازه های فلزی می باشد که در شهر تبریز فعالیت میکند ...">
 <title>
 سوله سازی نواح تبریز | تولید کننده ی سوله و سازه های فلزی در تبریز
 </title>
@@ -95,13 +96,13 @@
             <div class="uk-width-auto">
               {% for pic in project.pictures.all %}
       {% if forloop.first %}
-                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="">
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="عکس پروژه ی انجام شده">
                 {% endif %}
                 {% endfor %}
             </div>
             <div style="" class="uk-width-expand">
-                <h4 class="uk-comment-title uk-margin-remove"><span class="fYekan-bold font-4 gray-text-darken-4">{{project.project_name}}</span>
-                <span class="fYekan font-4 gray-text-darken-3">{{project.customer_name}}</span></h4>
+                <h3 class="uk-comment-title uk-margin-remove"><span class="fYekan-bold font-4 gray-text-darken-4">{{project.project_name}}</span>
+                <span class="fYekan font-4 gray-text-darken-3"> <strong> {{project.customer_name}}</strong></span></h3>
                 <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
                   <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">ابعاد: {{project.width}}x{{project.length}}
                   </div></li>
@@ -128,12 +129,12 @@
             <div class="uk-width-auto">
               {% for pic in project.pictures.all %}
       {% if forloop.first %}
-                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="">
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="عکس پروژه ی انجام شده">
                 {% endif %}
                 {% endfor %}
             </div>
             <div class="uk-width-expand">
-                <li class="font-3 uk-comment-title uk-margin-remove fYekan-bold red-text-darken-4">{{project.project_name}}</li>
+                <li class="font-3 uk-comment-title uk-margin-remove fYekan-bold red-text-darken-4"> <strong> {{project.project_name}}</strong></li>
                 <ul class="uk-comment-meta uk-subnav  uk-margin-remove-top">
                     <li><span style="color:#292929;" class="fYekan font-3 gray-text-darken-3">{{project.customer_name}}</span></li>
                 </ul>
@@ -158,7 +159,7 @@
 <section class="">
 
 
-<br><br><br><br>
+<br>
 <div style="padding: 5%;">
 <h2 class="font-7 white-text fYekan-bold">سوله سازی نواح، معتبرترین سوله سازی تبریز</h2>
 <br>
@@ -208,7 +209,7 @@
 <br>
 
 
-<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000">
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000; finite:false;">
     <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
         {% for famouscustomer in famouscustomers %}
         <li class="uk-width-1-1 uk-width-1-3@s">
@@ -233,7 +234,7 @@
 
 <div style="max-width:1800px; margin:auto;" class="border-radius-3 shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@m" uk-grid>
     <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
-        <img src="{{comment.picture.url}}"alt="" uk-cover>
+        <img src="{{comment.picture.url}}" alt="عکس کاربر" uk-cover>
         <canvas ></canvas>
     </div>
     <div class="uk-width-4-5">
@@ -254,10 +255,10 @@
 <div  class="uk-card-header">
     <div class="uk-grid-small uk-flex-middle" uk-grid>
         <div class="uk-width-auto">
-            <img class="uk-border-circle" width="200" src="{{comment.picture.url}}">
+            <img class="uk-border-circle" width="200" src="{{comment.picture.url}}" alt="عکس مشتری گروه صنعتی نواح">
         </div>
         <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>
+            <p class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></p>
             <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
         </div>
     </div>
@@ -275,10 +276,10 @@
 <div  class="uk-card-header">
     <div class="uk-grid-small uk-flex-middle" uk-grid>
         <div class="uk-width-auto">
-            <img class="uk-border-circle" width="90" src="{{comment.picture.url}}">
+            <img class="uk-border-circle" width="90" src="{{comment.picture.url}}" alt="عکس کاربر گروه صنعتی نواح">
         </div>
         <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></h3>
+            <p class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></p>
             <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
         </div>
     </div>
