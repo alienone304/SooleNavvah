@@ -1,9 +1,6 @@
 phone number validator for ordering:order page
 
 
-change form page errors to have persian errors that matches ui in card and a full detail
-english message in a seperate modal
-
 change text for about-us salon and steelbuilding page.
 
 check website seo with jetseo

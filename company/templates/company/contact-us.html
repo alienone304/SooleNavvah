@@ -87,8 +87,17 @@
       خطایی رخ داد.
       لطفا فیلد هارا دوباره با دقت پر کنید.<br>
       در صورت تداوم خطا مشکل را به پشتیبانان سایت اطلاع دهید.<br>
-
-      {{contactus_form.errors}}</p>
+<a href="#modal-example" uk-toggle>بیشتر</a>
+      </p>
+      <div style="z-index:10000;" id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title fYekan red-text">خطا ناشی از مسائل زیر میباشد</h2>
+        <p >{{contactus_form.errors}}</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close fYekan" type="button">بستن</button>
+        </p>
+    </div>
+</div>
     </div>
       {% endif %}
       <button class="uk-button red uk-align-center gray-text-lighten-4 shadow-1 border-radius-2" type="submit">تایید

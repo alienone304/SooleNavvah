@@ -1,9 +1,9 @@
 {% extends "BaseTemplates/basedocslider.html" %}
 {% block head_block %}
 <meta name=”robots” content=”index,follow”>
-<meta name="description" content="سوله سازی نواح یکی از شناخته شده ترین نام ها در صنعت سوله و سازه های فلزی می باشد که در شهر تبریز فعالیت میکند ...">
+<meta name="description" content="گروه صنعتی نواح یکی از شناخته شده ترین نام ها در صنعت سوله سازی و سازه های فلزی می باشد که در شهر تبریز فعالیت میکند ...">
 <title>
-سوله سازی نواح تبریز | تولید کننده ی سوله و سازه های فلزی در تبریز
+سوله سازی و گروه صنعتی نواح تبریز | تولید کننده ی سوله و سازه های فلزی در تبریز
 </title>
 {% endblock %}
 {% block body_block %}
@@ -11,15 +11,10 @@
   <div class="inner">
 
     <div class="uk-inline uk-hidden@m">
-        <img src="/media/statics/portrait1.jpg"  alt="سوله سازی تبریز">
+        <img src="/media/statics/portrait3.jpg"  alt="سوله سازی تبریز">
     </div>
     <div class="uk-inline uk-visible@m">
-        <img  src="/media/statics/landscape1.jpg" width="3850" alt="سوله سازی تبریز">
-        <div >
-            <div class="uk-overlay uk-position-top-center" style="padding-top:110px;">
-              <img style="background: rgba(0, 0, 0, 0.29);border-radius: 43%;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(2.4px);-webkit-backdrop-filter: blur(2.4px);" class="uk-text-center" src="/media/statics/Logo.png" width="400" alt="سوله سازی نواح تبریز">
-          </div>
-        </div>
+        <img  src="/media/statics/landscape3.jpg" width="3850" alt="سوله سازی تبریز">
 
     </div>
 
@@ -30,10 +25,10 @@
   <div class="inner">
 
     <div class="uk-inline uk-hidden@m">
-        <img src="/media/statics/portrait2.jpg"  alt="سوله سازی تبریز">
+        <img src="/media/statics/portrait4.jpg"  alt="سوله سازی تبریز">
     </div>
     <div class="uk-inline uk-visible@m">
-        <img  src="/media/statics/landscape2.jpg" width="3850" alt="سوله سازی تبریز">
+        <img  src="/media/statics/landscape4.jpg" width="3850" alt="سوله سازی تبریز">
 
     </div>
 
@@ -215,6 +210,7 @@
         <li class="uk-width-1-1 uk-width-1-3@s">
             <a class="uk-panel uk-inline" href="{{famouscustomer.picture.url}}"  >
                 <img width="2000" height="2000" src="{{famouscustomer.picture.url}}" alt="{{famouscustomer.description}}"  >
+                <p class="font-5 uk-text-center white-text fYekan-bold">{{famouscustomer.description}}</p>
             </a>
         </li>
 {% endfor %}
