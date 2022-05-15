@@ -71,7 +71,7 @@ def ProjectDetailView(request, pk):
 def ProjectDeleteView(request, pk):
     project = get_object_or_404(ProjectsModel, pk = pk)
     project.delete()
-    return HttpResponseRedirect(reverse('projects:list'))
+    return HttpResponseRedirect(reverse('projects:projectlist'))
 
 
 @login_required

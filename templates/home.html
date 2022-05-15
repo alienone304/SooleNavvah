@@ -1,12 +1,27 @@
 {% extends "BaseTemplates/basedocslider.html" %}
 {% block head_block %}
+{% if request.session.lang == "en" %}
+<meta name=”robots” content=”index,follow”>
+<meta name="description" content="Navvah Steel Buildings is one of the greates companies of constructing and building steel and shed constructions in Tabriz">
+<title>
+Navvah Steel Buildings | Constructer of Steel and Shed Buildings in Tabriz
+</title>
+<style media="screen">
+  html{
+    direction: ltr;
+  }
+</style>
+{% else %}
+
 <meta name=”robots” content=”index,follow”>
 <meta name="description" content="گروه صنعتی نواح یکی از شناخته شده ترین نام ها در صنعت سوله سازی و سازه های فلزی می باشد که در شهر تبریز فعالیت میکند ...">
 <title>
 سوله سازی و گروه صنعتی نواح تبریز | تولید کننده ی سوله و سازه های فلزی در تبریز
 </title>
+{% endif %}
 {% endblock %}
 {% block body_block %}
+
 <section>
   <div class="inner">
 
@@ -35,6 +50,269 @@
 
 </div>
 </section>
+{% if request.session.lang == "en" %}
+  <div style="z-index:20" class="red-gradiant">
+    <div style="padding:3%">
+<br><br><br><br><br>
+<h1 class="font-7 white-text fYekan-bold">Navvah Steel Buildings, Constructer of Steel and Shed Buildings in Tabriz</h1>
+<br>
+<p style="max-width:1300" class="font-5 gray-text-lighten-4 fYekan uk-text-justify">
+  Navvah Steel building has found on 1999 in Tabriz and aimed to improve the quality of steel buildings with the formal name of
+   "Navvah specialized steel buildings and shed construction Center". designing constructing and building hundreds of
+   steel buildings, shed construction and indoor cranes are of the main activities of this company that has done over
+   this 20 years with nonstop effort of this experienced Group and skillful technicians to accomplish this task.
+   <br>
+  As of now Navvah steel building is one of the greatest and well known companies in constructing steel buildings
+  in Tabriz and Iran that is busy constructing several new steel projects that everyone of them has its own challenges And special futures.
+  <br>
+  Existence of Scientific potentials in this company with high-tech machines and devices has made Navvah steel
+  building to be able to construct the biggest of steel constructions in a short time. nowadays
+  this company has aimed to export steel construction to the neighboring countries.
+</p>
+<div class="fYekan gray-text-lighten-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
+
+<div class="">
+<a style="height:50px;   padding-top:9px;" class="font-5 uk-button border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'gallery:gallery' %}">gallery</a>
+</div>
+<div class="">
+<a style="height:50px;   padding-top:9px;" class="font-5 uk-button uk-button-large border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'ordering:order' %}">Order a Construction</a>
+</div>
+<div class="">
+<a style="height:50px;   padding-top:9px;" class="font-5 uk-button border-radius-2 red-text fYekan-bold gray-lighten-4 uk-align-center uk-text-center" href="{% url 'projects:projectlist' %}">Done Projects</a>
+</div>
+
+
+</div>
+<br>
+
+</div>
+<br>
+<div style="padding:5%;">
+<h2 class="font-7 white-text fYekan-bold">Some of the projects done by Navvah Steel Building</h2>
+  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="velocity:0.7;center: true; autoplay: true;autoplay-interval: 3250;">
+
+    <ul class="uk-slider-items uk-grid uk-grid-match">
+
+{% for project in projects %}
+        <li class="uk-width-1-1">
+          <div style="padding:5%" class="">
+
+<article style="max-width:1800px; margin:auto; " class="border-3 uk-align-center uk-comment shadow-3 uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-visible@m">
+    <header class="uk-comment-header" style="margin-bottom:7px;">
+        <div  class=" uk-grid-medium uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              {% for pic in project.pictures.all %}
+      {% if forloop.first %}
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="عکس پروژه ی انجام شده">
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div style="" class="uk-width-expand">
+                <h3 class="uk-comment-title uk-margin-remove"><span class="fYekan-bold font-4 gray-text-darken-4">{{project.project_name}}</span>
+                <span class="fYekan font-4 gray-text-darken-3"> <strong> {{project.customer_name}}</strong></span></h3>
+                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                  <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">ابعاد: {{project.width}}x{{project.length}}
+                  </div></li>
+                  <li><div style="font-size:16px; color:black;white-space:pre;" class="fYekan font-4 gray-text-darken-4"> تاریخ ساخت   {{project.date_of_project}}</div></li>
+
+                    <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4"> {{project.address}}</div></li>
+                    <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+                    <a style="white-space:pre; color:gray;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  جزئیات بیشتر</a>
+                  </div></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+</article>
+
+
+</div>
+
+<!-- small screens -->
+<article style="margin-top:5px; padding:5px;" class="font-3 fYekan gray-text-darken-3 border-3 shadow-3 uk-comment uk-comment-primary uk-card uk-card-default uk-grid-collapse gray-lighten-4 uk-hidden@m">
+    <header style="margin:5px;" class="uk-comment-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              {% for pic in project.pictures.all %}
+      {% if forloop.first %}
+                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="عکس پروژه ی انجام شده">
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="uk-width-expand">
+                <li class="font-3 uk-comment-title uk-margin-remove fYekan-bold red-text-darken-4"> <strong> {{project.project_name}}</strong></li>
+                <ul class="uk-comment-meta uk-subnav  uk-margin-remove-top">
+                    <li><span style="color:#292929;" class="fYekan font-3 gray-text-darken-3">{{project.customer_name}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div style="margin:10px;" class="uk-comment-body">
+        <p>{{project.address}}<a style="white-space:pre; color:#cb1306;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdetail' project.pk %}">  بیشتر...</a></p>
+    </div>
+</article>
+        </li>
+{% endfor %}
+
+</ul>
+
+<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+
+</div>
+<section class="">
+
+
+<br>
+<div style="padding: 5%;">
+<h2 class="font-7 white-text fYekan-bold">Navvah Steel and Shed Constructions, The most reliable industrial group in this field</h2>
+<br>
+    <div class="fYekan gray-text-lighten-4 font-4 uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+<span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:heart;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
+
+<br>
+<p class="font-4 white-text fYekan uk-text-justify uk-text-center">
+  Navvah Industrial Group is a known name in shed industry in Tabriz and also in Iran
+  that by using skillful managers has tried continously to achive customers satisfaction and
+ works according to this industries standards and certificates.
+
+</p>
+            </div>
+         </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+<span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow"  uk-icon="icon:cog;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
+<br>
+<p class="font-4 white-text fYekan uk-text-justify uk-text-center">
+Using the highest-tech machines and technology of steel struction,
+having a skillful and scientific personnel at every step of building the construction,
+is Navvah Steel Building's well known attribiute.
+
+</p>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body glass-effect shadow-3">
+<span style="background: #ffffff; padding:20px; border-radius: 50%;" class="uk-margin-small-right red-text animation-slow" uk-icon="icon:clock;ratio:2" uk-scrollspy="cls: uk-animation-scale-up;"></span>
+<br>
+<p class="font-4 white-text fYekan uk-text-justify uk-text-center">
+
+  Keeping the promised schedjuling and commitment to install the steel construction on the
+  promised time, is another strength of this group that has done by using the successfull project-control
+  techniques over the years that caused to save customers time and eventually money.
+</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<br><br><br>
+<div style="padding:3%">
+<h2 class="font-7 white-text fYekan-bold" >Some of Our Customers</h2>
+<br>
+
+
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active;center: true;autoplay: true;autoplay-interval: 2000; finite:false;">
+    <ul class="uk-slider-items uk-grid" uk-lightbox="animation: slide">
+        {% for famouscustomer in famouscustomers %}
+        <li class="uk-width-1-1 uk-width-1-3@s">
+            <a class="uk-panel uk-inline" href="{{famouscustomer.picture.url}}"  >
+                <img width="2000" height="2000" src="{{famouscustomer.picture.url}}" alt="{{famouscustomer.description}}"  >
+                <p class="font-5 uk-text-center white-text fYekan-bold">{{famouscustomer.description}}</p>
+            </a>
+        </li>
+{% endfor %}
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+
+</div>
+
+<br>
+<br><br>
+<div style="padding:3%">
+<h2 class="font-7 white-text fYekan-bold" >Reviews by some of our customers</h2>
+{% for comment in comments %}
+
+<div style="max-width:1800px; margin:auto;" class="border-radius-3 shadow-3 uk-card uk-card-default uk-grid-collapse uk-margin gray-lighten-4 uk-visible@m" uk-grid>
+    <div class="uk-flex-first@s uk-card-media uk-cover-container uk-width-1-5">
+        <img src="{{comment.picture.url}}" alt="عکس کاربر" uk-cover>
+        <canvas ></canvas>
+    </div>
+    <div class="uk-width-4-5">
+        <div class="uk-card-body">
+          <div class="uk-card-title"> <span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span>
+             <span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span>
+ </div>
+<div class="fYekan font-4 gray-text-darken-4"> {{comment.comment|linebreaks}}</div>
+
+        </div>
+    </div>
+</div>
+
+
+<br><br>
+<!-- medium screens -->
+<div style="margin:10px;" class="uk-card border-radius-3 uk-card-default uk-hidden@m uk-visible@s  shadow-3">
+<div  class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+            <img class="uk-border-circle" width="200" src="{{comment.picture.url}}" alt="عکس مشتری گروه صنعتی نواح">
+        </div>
+        <div class="uk-width-expand">
+            <p class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></p>
+            <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
+        </div>
+    </div>
+</div>
+          <div class="uk-card-body">
+
+<p class="fYekan font-4 gray-text-darken-3"> {{comment.comment}}</p>
+          </div>
+      </div>
+
+
+
+<!-- small screens -->
+<div style="margin:10px;" class="uk-card border-radius-3 uk-card-default uk-hidden@s shadow-3">
+<div  class="uk-card-header">
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+            <img class="uk-border-circle" width="90" src="{{comment.picture.url}}" alt="عکس کاربر گروه صنعتی نواح">
+        </div>
+        <div class="uk-width-expand">
+            <p class="uk-card-title uk-margin-remove-bottom"><span class="fYekan-bold font-4 gray-text-darken-4">{{comment.project_name}}</span></p>
+            <p class="uk-text-meta uk-margin-remove-top"><span class="fYekan font-4 gray-text-darken-3">{{comment.person_name}}</span></p>
+        </div>
+    </div>
+</div>
+          <div class="uk-card-body">
+
+<p class="fYekan font-4 gray-text-darken-3"> {{comment.comment}}</p>
+          </div>
+      </div>
+
+
+{% endfor %}
+
+</div>
+<br><br>
+</section>
+
+
+
+
+{% else %}
 
   <div style="z-index:20" class="red-gradiant">
     <div style="padding:3%">
@@ -167,7 +445,7 @@
 <p class="font-4 white-text fYekan uk-text-justify uk-text-center">
 گروه صنعتی نواح نامی آشنا در صنعت سوله سازی تبریز و همچنین در ایران
 بوده که با استفاده از مدیران خون گرم و مجرب در راستای شکوفایی صنعت کشور و
-رضایتمندی مداوم مشتریان استاندارد ها و اصول اخلاقی را در دستور کار خود قرار داده است.
+رضایتمندی مداوم مشتریان قدم بردشته و استاندارد ها و اصول اخلاقی را در دستور کار خود قرار داده است.
 </p>
             </div>
          </div>
@@ -178,7 +456,8 @@
 <p class="font-4 white-text fYekan uk-text-justify uk-text-center">
 استفاده از پیشرفته ترین تجهیزات و تکنولوژی ساخت اسکلت فلزی سوله.
 دارا بودن کادر فنی مجرب و دانش مهندسی کارآمد در تمامی مراحل
-طراحی تا اجرا و ترکیب دانش و صنعت در سوله سازی نواح</p>
+طراحی تا اجرا و ترکیب دانش و صنعت در سوله سازی نواح
+از مهمترین ویژگی های این مجموعه می باشد.</p>
             </div>
         </div>
         <div>
@@ -292,5 +571,5 @@
 </div>
 <br><br>
 </section>
-
+{% endif %}
 {% endblock %}

@@ -21,6 +21,9 @@
         {% if forloop.first %}
                   <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="">
                   {% endif %}
+                  {% empty %}
+                            <img class="uk-comment-avatar" src="/media/projects/default.jpeg" width="150" alt="">
+
                   {% endfor %}
               </div>
               <div style="" class="uk-width-expand">
@@ -39,6 +42,9 @@
                     <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
                     <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectupdate' project.pk %}">  ویرایش</a>
                   </div></li>
+                  <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+                  <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdelete' project.pk %}">  حذف</a>
+                </div></li>
                   {% endif %}
                   </ul>
               </div>
@@ -59,6 +65,10 @@
       {% if forloop.first %}
                 <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="">
                 {% endif %}
+                {% empty %}
+
+                          <img class="uk-comment-avatar" src="/media/projects/default.jpeg" width="90" alt="">
+
                 {% endfor %}
             </div>
             <div class="uk-width-expand">
@@ -75,6 +85,9 @@
         <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
         <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectupdate' project.pk %}">  ویرایش</a>
       </div></li>
+      <li><div style="font-size:16px; color:black;" class="fYekan font-4 gray-text-darken-4">
+      <a style="white-space:pre;" class="border-radius-2 fYekan-bold red-text-darken-1" href="{% url 'projects:projectdelete' project.pk %}">  حذف</a>
+    </div></li>
       {% endif %}
     </div>
 </article>

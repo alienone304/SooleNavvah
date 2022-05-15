@@ -1,9 +1,20 @@
 {% load static %}
+{% if request.session.lang == "en" %}
+
 <!DOCTYPE html>
 <html dir="rtl" style="overflow-x: hidden;background: rgb(203,19,6);background: linear-gradient(144deg, rgba(203,19,6,1) 24%, rgba(66,0,0,1) 83%);background-attachment: fixed;">
 <head>
+  {% else %}
+
+  <!DOCTYPE html>
+  <html dir="rtl" style="overflow-x: hidden;background: rgb(203,19,6);background: linear-gradient(144deg, rgba(203,19,6,1) 24%, rgba(66,0,0,1) 83%);background-attachment: fixed;">
+  <head>
+  {% endif %}
   {% block head_block %}
 {% endblock %}
+
+{% if request.session.lang == "en" %}
+
 <style media="screen">
 .inner{
   height: 100%;
@@ -46,67 +57,62 @@ margin: 0;
                     {% if user.is_superuser %}
                       <li>
                           <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'accounts:dashboard' %}">
-                            پنل مدیریت
+                          dashboard
                           </a>
                         </li>
 
                           {% endif %}
                           <li>
                               <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'projects:projectlist' %}">
-                                لیست پروژه ها
+                              Project List
                               </a>
                           </li>
                           <li>
                           <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'gallery:gallery' %}">
-                            گالری
+                      Gallery
                           </a>
                       </li>
 
                       <li>
                           <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'ordering:order' %}">
-                          سفارش ساخت
+                          Order a Construction
                           </a>
                       </li>
                       <li>
                           <a style="margin-left:10px; color:#gray; font-family: 'Yekan';  font-size:18px;" class="disabled" href="#">
-                            تخمین هزینه
+                            Predict Cost
                           </a>
                       </li>
                       <li>
                           <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="#">
-                            گروه صنعتی نواح<span uk-icon="triangle-down"></span>
+                            Navvah Industial Group<span uk-icon="triangle-down"></span>
                           </a>
                           <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#ffffff;">
     <ul class="uk-nav uk-navbar-dropdown-nav">
 
 
-        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-weight: bold;font-size:18px; " href="{% url 'company:aboutus' %}">درباره ی ما</a></li>
-        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">سوله ی نواح</a></li>
-        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">سازه فلزی نواح</a></li>
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-weight: bold;font-size:18px; " href="{% url 'company:aboutus' %}">About Us</a></li>
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">Navvah Shed Constructions</a></li>
+        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">Navvah Steel Buildings</a></li>
         <li style="border-top:1px red solid; margin-top:15px;" class="uk-active">
           <a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:contactus' %}">
             <span uk-icon="icon:receiver; ratio:1.3;" class="red-text"></span>
-            تماس با ما</a></li>
+            Contact Us</a></li>
     </ul>
 </div>
                       </li>
                       {% if not user.is_authenticated %}
                       <li>
                       <a style="border-right:#ff8282 1px solid; padding-right:30px;padding-left:25px;color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'accounts:login' %}">
-                        ورود
+                Login
                       </a>
                       </li>
                       {% endif %}
                       <li>
-                          <a style="border-right:#ff8282 1px solid; padding-right:30px;margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:14px;"href="#">
-                          fa/en<span uk-icon="triangle-down"></span>
+                          <a style="border-right:#ff8282 1px solid; padding-right:30px;margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:14px;"href="{% url 'change_language' %}">
+                          fa/en
                           </a>
-                          <div  class="uk-navbar-dropdown " style="max-width: 130px;margin-top:-10px; background-color:#ffffff;">
-    <ul class="uk-nav uk-navbar-dropdown-nav">
-        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:14px; " href="#">فارسی</a></li>
-        <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:14px; " href="#">English</a></li>
-    </ul>
-</div>
+
                       </li>
                   </ul>
 
@@ -129,55 +135,55 @@ margin: 0;
 
                             <a style=" color:#f52d1b; font-family: 'Yekan';font-weight: bold;  font-size:18px;" href="{% url 'home' %}">
 <span uk-icon="icon:home; ratio:1.2;" class="red-text"></span>
-                            خانه
+        Home
                             </a>
                         </li>
 
-                        <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:aboutus' %}">درباره‌ی ما</a></li>
+                        <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:aboutus' %}">About Us</a></li>
 
 
                             {% if user.is_superuser %}
                               <li>
                             <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'accounts:dashboard' %}">
-                              پنل مدیریت
+                Dashboard
                             </a>
                           </li>
                             {% endif %}
                             <li>
                                 <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'ordering:order' %}">
-                                سفارش ساخت
+                    Order a Construction
                                 </a>
                             </li>
                         <li>
                             <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'gallery:gallery' %}">
-                              گالری
+                              Gallery
                             </a>
                         </li>
                         <li>
                             <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'projects:projectlist' %}">
-                              لیست پروژه ها
+                      Project List
                             </a>
                         </li>
 
                         <li style="border-bottom:1px red solid;padding-bottom:10px;">
                             <a style=" color:gray; font-family: 'Yekan';  font-size:18px;" class="disabled" href="#">
-                              تخمین هزینه
+                      Predict Cost
                             </a>
                         </li>
                         {% if not user.is_authenticated %}
                         <li style="border-bottom:1px red solid;padding-bottom:10px;">
                         <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'accounts:login' %}">
-                          ورود
+        Login
                         </a>
                         </li>
                         {% endif %}
-                        <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">سوله ی نواح</a></li>
-                        <li style="border-bottom:1px red solid;padding-bottom:10px;"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">سازه فلزی نواح</a></li>
+                        <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">Navvah Shed Construction</a></li>
+                        <li style="border-bottom:1px red solid;padding-bottom:10px;"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">Navvah Steel building</a></li>
                         <li >
 
                           <a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:contactus' %}">
                             <span uk-icon="icon:receiver; ratio:1.3;" class="red-text"></span>
-                            تماس با ما</a></li>
+                          Contact Us</a></li>
 
 
                       </ul>
@@ -187,29 +193,214 @@ margin: 0;
 
 <br><br><br><br>
 <div  class="docSlider">
+  {% else %}
+
+  <style media="screen">
+  .inner{
+    height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  margin: 0;
+  }
+  </style>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/png" href="https://soolenavvah.com/favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="/media/statics/Logo_favicon.png" sizes="16x16"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;700&family=Noto+Sans+Arabic:wght@300;400&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/uikit-rtl.css' %}" media="screen,projection"/>
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jpage@0.14.0/lib/index.min.css"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'docslider/docSlider.css' %}"/>
+    <script src="{% static 'js/uikit.min.js' %}" ></script>
+    <script src="{% static 'js/uikit-icons.min.js' %}" ></script>
+  </head>
+        <body>
+
+          <header >
+              <!-- Main Navbar -->
+
+              <nav class="uk-navbar-container uk-margin" style=" background: rgb(249,249,249);background: linear-gradient(144deg, rgba(249,249,249,1) 5%, rgba(233,233,233,1) 100%);position: fixed;right: 0;left: 0;top: 0;z-index: 1030;box-shadow: 0 15px 17px rgba(0, 0,0, 0.18); height:100px;" uk-navbar>
+                  <div style="margin-bottom: 1.5%;" class="uk-navbar-right">
+
+                      <a class="uk-navbar-item uk-logo" alt="لوگو سوله سازی نواح تبریز" href="{% url 'home' %}"> <img width="115px" src="/media/statics/CompleteLogo.png" alt="لوگوی سوله سازی نواح تبریز"> </a>
+
+
+                  </div>
+                  <div class="uk-navbar-left uk-hidden@m"><a id="humberger" href="#" class="uk-navbar-toggle red-text" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a></div>
+                  <div class="uk-navbar-left uk-visible@m">
+                    <ul style="" class="uk-navbar-nav">
+                      {% if user.is_superuser %}
+                        <li>
+                            <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'accounts:dashboard' %}">
+                              پنل مدیریت
+                            </a>
+                          </li>
+
+                            {% endif %}
+                            <li>
+                                <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'projects:projectlist' %}">
+                                  لیست پروژه ها
+                                </a>
+                            </li>
+                            <li>
+                            <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'gallery:gallery' %}">
+                              گالری
+                            </a>
+                        </li>
+
+                        <li>
+                            <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'ordering:order' %}">
+                            سفارش ساخت
+                            </a>
+                        </li>
+                        <li>
+                            <a style="margin-left:10px; color:#gray; font-family: 'Yekan';  font-size:18px;" class="disabled" href="#">
+                              تخمین هزینه
+                            </a>
+                        </li>
+                        <li>
+                            <a style="margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="#">
+                              گروه صنعتی نواح<span uk-icon="triangle-down"></span>
+                            </a>
+                            <div  class="uk-navbar-dropdown " style="margin-top:-10px; background-color:#ffffff;">
+      <ul class="uk-nav uk-navbar-dropdown-nav">
+
+
+          <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-weight: bold;font-size:18px; " href="{% url 'company:aboutus' %}">درباره ی ما</a></li>
+          <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">سوله ی نواح</a></li>
+          <li class="uk-active"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">سازه فلزی نواح</a></li>
+          <li style="border-top:1px red solid; margin-top:15px;" class="uk-active">
+            <a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:contactus' %}">
+              <span uk-icon="icon:receiver; ratio:1.3;" class="red-text"></span>
+              تماس با ما</a></li>
+      </ul>
+  </div>
+                        </li>
+                        {% if not user.is_authenticated %}
+                        <li>
+                        <a style="border-right:#ff8282 1px solid; padding-right:30px;padding-left:25px;color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'accounts:login' %}">
+                          ورود
+                        </a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a style="border-right:#ff8282 1px solid; padding-right:30px;margin-left:10px; color:#f52d1b; font-family: 'Yekan';  font-size:14px;"href="{% url 'change_language' %}">
+                            fa/en
+                            </a>
+
+                        </li>
+                    </ul>
+
+
+                  </div>
+              </nav>
+
+
+          </header>
+
+
+
+
+                  <div style="z-index:5000" id="sidenav" uk-offcanvas="flip: true" style="background: rgb(249,249,249);background: linear-gradient(144deg, rgba(249,249,249,1) 5%, rgba(233,233,233,1) 100%); box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas">
+                      <div style="background: rgb(249,249,249);background: linear-gradient(144deg, rgba(249,249,249,1) 5%, rgba(233,233,233,1) 100%); box-shadow: 0 15px 17px rgba(0, 0,0, 0.18);" class="uk-offcanvas-bar">
+                        <ul class="uk-nav">
+                          <li style="border-bottom:1px red solid;">
+
+                              <a style=" color:#f52d1b; font-family: 'Yekan';font-weight: bold;  font-size:18px;" href="{% url 'home' %}">
+  <span uk-icon="icon:home; ratio:1.2;" class="red-text"></span>
+                              خانه
+                              </a>
+                          </li>
+
+                          <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:aboutus' %}">درباره‌ی ما</a></li>
+
+
+                              {% if user.is_superuser %}
+                                <li>
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'accounts:dashboard' %}">
+                                پنل مدیریت
+                              </a>
+                            </li>
+                              {% endif %}
+                              <li>
+                                  <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'ordering:order' %}">
+                                  سفارش ساخت
+                                  </a>
+                              </li>
+                          <li>
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;" href="{% url 'gallery:gallery' %}">
+                                گالری
+                              </a>
+                          </li>
+                          <li>
+                              <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'projects:projectlist' %}">
+                                لیست پروژه ها
+                              </a>
+                          </li>
+
+                          <li style="border-bottom:1px red solid;padding-bottom:10px;">
+                              <a style=" color:gray; font-family: 'Yekan';  font-size:18px;" class="disabled" href="#">
+                                تخمین هزینه
+                              </a>
+                          </li>
+                          {% if not user.is_authenticated %}
+                          <li style="border-bottom:1px red solid;padding-bottom:10px;">
+                          <a style=" color:#f52d1b; font-family: 'Yekan';  font-size:18px;"href="{% url 'accounts:login' %}">
+                            ورود
+                          </a>
+                          </li>
+                          {% endif %}
+                          <li ><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:salon' %}">سوله ی نواح</a></li>
+                          <li style="border-bottom:1px red solid;padding-bottom:10px;"><a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:steelbuilding' %}">سازه فلزی نواح</a></li>
+                          <li >
+
+                            <a style="color:#f52d1b; font-family: 'Yekan', sans-serif; font-size:18px; " href="{% url 'company:contactus' %}">
+                              <span uk-icon="icon:receiver; ratio:1.3;" class="red-text"></span>
+                              تماس با ما</a></li>
+
+
+                        </ul>
+
+                      </div>
+                  </div>
+
+  <br><br><br><br>
+  <div  class="docSlider">
+
+    {% endif %}
+
       {% block body_block %}
       {% endblock %}
+
+
+      {% if request.session.lang == "en" %}
+
 <br>
       <footer style="padding:30px;" class="gray-gradiant font-3">
               <div  class="uk-grid uk-grid-small fYekan uk-margin" uk-grid>
                 <div class="uk-width-1-4@s uk-width-1-2 uk-margin-top">
-              <a href="{% url 'gallery:gallery' %}" class="red-text">گالری</a><br>
-              <a href="{% url 'company:aboutus' %}" class="red-text">درباره ما</a><br>
-              <a href="{% url 'company:contactus' %}" class="red-text">تماس با ما</a><br>
-              <a href="#" class="red-text">مقالات</a><br>
-              <a href="{% url 'company:salon' %}" class="red-text">سوله های نواح</a><br>
-              <a href="{% url 'company:steelbuilding' %}" class="red-text">سازه های فلزی نواح</a><br>
+              <a href="{% url 'gallery:gallery' %}" class="red-text">Gallery</a><br>
+              <a href="{% url 'company:aboutus' %}" class="red-text">About us</a><br>
+              <a href="{% url 'company:contactus' %}" class="red-text">Contact Us</a><br>
+              <a href="#" class="red-text">‌Blog</a><br>
+              <a href="{% url 'company:salon' %}" class="red-text">Navvah Shed Construction</a><br>
+              <a href="{% url 'company:steelbuilding' %}" class="red-text">Navvah Steel Building</a><br>
 
 
 
                 </div>
                 <div class="uk-width-1-4@s uk-width-1-2 uk-margin-top">
-                  <a href="{% url 'home' %}" class="red-text">خانه</a><br>
-                  <a href="{% url 'accounts:login' %}" class="red-text">ورود</a><br>
-                  <a href="{% url 'logout' %}" class="red-text">خروج</a><br>
-                  <a href="{% url 'ordering:order' %}" class="red-text">سفارش ساخت</a><br>
-                  <a href="{% url 'projects:projectlist' %}" class="red-text">لیست پروژه ها</a><br>
-                  <a href="#" class="gray-text">تخمین هزینه ساخت</a><br>
+                  <a href="{% url 'home' %}" class="red-text">Home</a><br>
+                  <a href="{% url 'accounts:login' %}" class="red-text">Login</a><br>
+                  <a href="{% url 'logout' %}" class="red-text">Logout</a><br>
+                  <a href="{% url 'ordering:order' %}" class="red-text">Order a Construction</a><br>
+                  <a href="{% url 'projects:projectlist' %}" class="red-text">Project List</a><br>
+                  <a href="#" class="gray-text">Predict Cost</a><br>
 
                 </div>
                 <div class="uk-width-1-2@s uk-width-1-1" uk-grid>
@@ -240,7 +431,7 @@ margin: 0;
       </footer>
       <div class=" uk-grid-small uk-text-center red-gradiant"  uk-grid>
             <div class="uk-width-1-1 gray-text-lighten-4 fYekan uk-text-center uk-text-center font-2" >
-              تمام حقوق مادی و معنوی این سایت محفوظ می باشد.
+              All Rights Reserved
         </div>
 
       </div>
@@ -261,7 +452,81 @@ margin: 0;
 
       </script>
       <script>docSlider.init();</script>
+        {% else %}
+        <br>
+              <footer style="padding:30px;" class="gray-gradiant font-3">
+                      <div  class="uk-grid uk-grid-small fYekan uk-margin" uk-grid>
+                        <div class="uk-width-1-4@s uk-width-1-2 uk-margin-top">
+                      <a href="{% url 'gallery:gallery' %}" class="red-text">گالری</a><br>
+                      <a href="{% url 'company:aboutus' %}" class="red-text">درباره ما</a><br>
+                      <a href="{% url 'company:contactus' %}" class="red-text">تماس با ما</a><br>
+                      <a href="#" class="red-text">مقالات</a><br>
+                      <a href="{% url 'company:salon' %}" class="red-text">سوله های نواح</a><br>
+                      <a href="{% url 'company:steelbuilding' %}" class="red-text">سازه های فلزی نواح</a><br>
 
+
+
+                        </div>
+                        <div class="uk-width-1-4@s uk-width-1-2 uk-margin-top">
+                          <a href="{% url 'home' %}" class="red-text">خانه</a><br>
+                          <a href="{% url 'accounts:login' %}" class="red-text">ورود</a><br>
+                          <a href="{% url 'logout' %}" class="red-text">خروج</a><br>
+                          <a href="{% url 'ordering:order' %}" class="red-text">سفارش ساخت</a><br>
+                          <a href="{% url 'projects:projectlist' %}" class="red-text">لیست پروژه ها</a><br>
+                          <a href="#" class="gray-text">تخمین هزینه ساخت</a><br>
+
+                        </div>
+                        <div class="uk-width-1-2@s uk-width-1-1" uk-grid>
+        <div class="uk-width-1-1 uk-text-center">
+        <a class="uk-text-center"  href="{% url 'home' %}"> <img width="108px" src="/media/statics/CompleteLogo.png" alt="لوگوی سوله سازی نواح تبریز"> </a>
+        </div>
+
+        <div class=" uk-width-1-2@s uk-width-1-1 ">
+          <a href="tel:04134245081" style="margin-top:6px;" class="red-text">۰۴۱۳-۴۲۴-۵۰۸۱</a><br>
+          <a href="tel:09141165913" style="margin-top:6px;" class="red-text">۰۹۱۴-۱۱۶-۵۹۱۳</a><br>
+          <a href="tel:09143098815" style="margin-top:6px;" class="red-text">۰۹۱۴-۳۰۹-۸۸۱۵</a><br>
+
+        </div>
+        <div class=" uk-width-1-2@s uk-width-1-1 uk-text-right ">
+          <div class=" uk-hidden@m uk-visible@s" style="direction:ltr;"> <a class="red-text uk-text-truncate font-2" href="https://www.instagram.com/soolenavvah_steelbuilding/">soolenavvah_st.. <img width="27" style="margin-top:0;" src="/media/Logo/instagram.png" alt="لوگوی اینستاگرام"></a></div>
+          <div class=" uk-visible@m" style="direction:ltr;"> <a class="red-text uk-text-truncate font-2" href="https://www.instagram.com/soolenavvah_steelbuilding/">soolenavvah_steelbuilding <img width="27" style="margin-top:0;" src="/media/Logo/instagram.png" alt="لوگوی اینستاگرام"></a></div>
+          <div class=" uk-hidden@s" style="direction:ltr;"> <a class="red-text uk-text-truncate font-2" href="https://www.instagram.com/soolenavvah_steelbuilding/">soolenavvah_steelbuilding <img width="27" style="margin-top:0;" src="/media/Logo/instagram.png" alt="لوگوی اینستاگرام"></a></div>
+          <div style="direction:ltr;"><a class="red-text uk-text-truncate font-2" href="https://wa.me/+989141165913" >  ۰۹۱۴-۱۱۶-۵۹۱۳  <img width="27" style="margin-top:0;" src="/media/Logo/watsapp.png" alt="لوگوی واتساپ"></a></div>
+          <div class="red-text"><a class="red-text uk-text-break font-2" href="https://goo.gl/maps/n5DW3v6ri6AVDyZH8"><span style="background: #f52d1b; padding:5px; border-radius: 50%;" class="white-text" uk-icon="icon:location;ratio:1"></span>  Google Maps</a></div>
+        </div>
+                        </div>
+
+                      </div>
+
+
+
+
+              </footer>
+              <div class=" uk-grid-small uk-text-center red-gradiant"  uk-grid>
+                    <div class="uk-width-1-1 gray-text-lighten-4 fYekan uk-text-center uk-text-center font-2" >
+                      تمام حقوق مادی و معنوی این سایت محفوظ می باشد.
+                </div>
+
+              </div>
+
+        </div>
+
+        </div>
+
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+              <script type="text/javascript">
+              $('#humberger').click(function() {
+          $('#sidenav').css({
+              'z-index': '5000',
+          });
+        });
+              </script>
+              <script src="{% static 'docslider/docSlider.min.js' %}">
+
+              </script>
+              <script>docSlider.init();</script>
+
+  {% endif %}
       {% block script_block %}
       {% endblock %}
     </body>

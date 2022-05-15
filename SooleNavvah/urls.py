@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import HomeView
+from .views import HomeView, ChangeLanguage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('django.contrib.auth.urls')),
     path('',HomeView,name = 'home'),
+    path('lang/',ChangeLanguage,name = 'change_language'),
     path('superuser/', include('accounts.urls',namespace = 'accounts')),
     path('commonuser/', include('commonuser.urls',namespace = 'commonuser')),
     path('gallery/', include('gallery.urls',namespace = 'gallery')),
