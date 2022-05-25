@@ -1,0 +1,39 @@
+{
+  "name": "jpage",
+  "version": "0.14.0",
+  "type": "module",
+  "description": "Create websites as slides.",
+  "keywords": [
+    "jpage",
+    "pages",
+    "javascript",
+    "front-end",
+    "amazing pages",
+    "create websites",
+    "full page",
+    "slides",
+    "scroller"
+  ],
+  "main": "./lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "cd docs && bundle exec jekyll serve --livereload --watch",
+    "minify": "npx esbuild lib/index.js --bundle --minify --outfile=lib/index.min.js && npx esbuild lib/index.css --bundle --outfile=lib/index.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedro-isacss/jpage.git"
+  },
+  "author": "Pedro Isac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedro-isacss/jpage/issues"
+  },
+  "homepage": "https://github.com/pedro-isacss/jpage#readme",
+  "devDependencies": {
+    "esbuild": "^0.14.18"
+  }
+}

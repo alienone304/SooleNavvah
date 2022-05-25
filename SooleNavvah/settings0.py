@@ -169,3 +169,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Backup
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': '/home/server_user/backup/'}
+
+
+SECURE_HSTS_SECONDS = 259200
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
