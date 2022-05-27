@@ -33,7 +33,7 @@
                 <div class="post-masonry col-lg-4 col-md-4 col-sm-6 ">
                     <div class="post-thumb shadow-3">
                       <a class="uk-inline" href="{{photo.picture.url}}" data-caption="{{photo.description}}">
-                          <img src="{{photo.picture.url}}"  alt="{{photo.description}}" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
+                          <img loading="lazy" decoding="async" style="background-size: cover;background-image:URL(data:image/svg+xml;base64,[svgtext]);" src="{{photo.picture.url}}"  alt="{{photo.description}}" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
                       </a>
                         <div class="post-hover text-center">
                             <div class="inside fYekan">

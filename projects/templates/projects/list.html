@@ -19,10 +19,10 @@
               <div class="uk-width-auto">
                 {% for pic in project.pictures.all %}
         {% if forloop.first %}
-                  <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="">
+                  <img loading="lazy" decoding="async" style="background-size: cover;background-image:URL(data:image/svg+xml;base64,[svgtext]);" class="uk-comment-avatar" src="{{pic.picture.url}}" width="150" alt="">
                   {% endif %}
                   {% empty %}
-                            <img class="uk-comment-avatar" src="/media/projects/default.jpeg" width="150" alt="">
+                            <img loading="lazy" decoding="async" style="background-size: cover;background-image:URL(data:image/svg+xml;base64,[svgtext]);" class="uk-comment-avatar" src="/media/projects/default.jpeg" width="150" alt="">
 
                   {% endfor %}
               </div>
@@ -63,11 +63,11 @@
             <div class="uk-width-auto">
               {% for pic in project.pictures.all %}
       {% if forloop.first %}
-                <img class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="">
+                <img loading="lazy" decoding="async" style="background-size: cover;background-image:URL(data:image/svg+xml;base64,[svgtext]);" class="uk-comment-avatar" src="{{pic.picture.url}}" width="90" alt="">
                 {% endif %}
                 {% empty %}
 
-                          <img class="uk-comment-avatar" src="/media/projects/default.jpeg" width="90" alt="">
+                          <img loading="lazy" decoding="async" style="background-size: cover;background-image:URL(data:image/svg+xml;base64,[svgtext]);" class="uk-comment-avatar" src="/media/projects/default.jpeg" width="90" alt="">
 
                 {% endfor %}
             </div>

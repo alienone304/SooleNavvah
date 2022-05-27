@@ -33,7 +33,7 @@
               {% for photo in photos %}
                 <div class="post-masonry col-md-4 col-sm-6 ">
                     <div class="post-thumb shadow-3">
-                          <img src="{{photo.picture.url}}"  alt="{{photo.description}}" >
+                          <img loading="lazy" decoding="async" style="background-size: cover;background-image:URL(data:image/svg+xml;base64,[svgtext]);" src="{{photo.picture.url}}"  alt="{{photo.description}}" >
 
                         <div class="post-hover text-center">
                             <div class="inside fYekan">
